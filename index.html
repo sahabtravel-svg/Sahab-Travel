@@ -13,19 +13,21 @@
         .services-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; }
         .small-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 0 15px 20px; }
         
-        .card { background: white; border: 1px solid #eef2f4; border-radius: 12px; padding: 15px 5px; text-align: center; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100px; }
+        .card { background: white; border: 1px solid #eef2f4; border-radius: 12px; padding: 15px 5px; text-align: center; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         
-        /* أيقونات "المسافر" المحدثة */
-        .main-icon { width: 45px; height: 45px; margin-bottom: 8px; object-fit: contain; }
-        .sub-icon { width: 30px; height: 30px; margin-bottom: 5px; object-fit: contain; }
+        /* ضبط حجم الصور لتكون مطابقة للمسافر */
+        .main-icon { width: 48px; height: 48px; margin-bottom: 10px; object-fit: contain; }
+        .sub-icon { width: 32px; height: 32px; margin-bottom: 6px; object-fit: contain; }
         
-        .card span { font-weight: bold; color: #1a1a1a; font-size: 13px; }
-        .section-title { padding: 0 15px; font-weight: bold; color: #4a4a4a; margin-top: 15px; font-size: 14px; }
+        .card span { font-weight: bold; color: #1a1a1a; font-size: 14px; }
+        .section-title { padding: 0 15px; font-weight: bold; color: #4a4a4a; margin-top: 15px; font-size: 15px; }
         
-        .ai-section { background: #1a2b3c; margin: 15px; padding: 20px; border-radius: 15px; color: white; text-align: center; }
-        .ai-input-container { display: flex; gap: 8px; margin-top: 12px; }
-        input { flex: 1; padding: 10px; border-radius: 8px; border: none; outline: none; }
-        button { padding: 10px 15px; border-radius: 8px; border: none; background: #ffffff; color: #1a2b3c; font-weight: bold; cursor: pointer; }
+        .ai-section { background: #1a2b3c; margin: 15px; padding: 25px; border-radius: 20px; color: white; text-align: center; }
+        .ai-input-container { display: flex; gap: 8px; margin-top: 15px; }
+        input { flex: 1; padding: 12px; border-radius: 10px; border: none; outline: none; font-size: 14px; }
+        button { padding: 10px 20px; border-radius: 10px; border: none; background: white; color: #1a2b3c; font-weight: bold; cursor: pointer; }
+        
+        .new-tag { background: #4caf50; color: white; font-size: 9px; padding: 2px 6px; border-radius: 4px; position: absolute; top: 8px; right: 8px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -40,12 +42,14 @@
         <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="main-icon">
         <span>طيران</span>
     </a>
+    
     <a href="https://www.booking.com" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3669/3669919.png" class="main-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/2983/2983803.png" class="main-icon">
         <span>الإقامة</span>
     </a>
+    
     <div class="card" style="position: relative;">
-        <span style="background: #4caf50; color: white; font-size: 8px; padding: 1px 4px; border-radius: 3px; position: absolute; top: 8px; right: 8px;">جديد</span>
+        <span class="new-tag">جديد</span>
         <img src="https://cdn-icons-png.flaticon.com/512/3125/3125867.png" class="main-icon">
         <span>أنشطة</span>
     </div>
@@ -53,28 +57,28 @@
 
 <p class="section-title">المزيد من الخدمات</p>
 <div class="small-services">
-    <div class="card" style="min-height: 80px;">
+    <div class="card" style="min-height: 85px;">
         <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" class="sub-icon">
         <span style="font-size: 11px;">سيارات</span>
     </div>
-    <div class="card" style="min-height: 80px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2312/2312151.png" class="sub-icon">
+    <div class="card" style="min-height: 85px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/723/723847.png" class="sub-icon">
         <span style="font-size: 11px;">قطار</span>
     </div>
-    <div class="card" style="min-height: 80px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/912/912667.png" class="sub-icon">
+    <div class="card" style="min-height: 85px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3104/3104868.png" class="sub-icon">
         <span style="font-size: 11px;">كروز</span>
     </div>
-    <div class="card" style="min-height: 80px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" class="sub-icon">
+    <div class="card" style="min-height: 85px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/570/570223.png" class="sub-icon">
         <span style="font-size: 11px;">المزيد</span>
     </div>
 </div>
 
 <div class="ai-section">
-    <h3 style="margin: 0; font-size: 16px;">🤖 مساعد سحاب الذكي</h3>
+    <h3 style="margin: 0; font-size: 18px;">🤖 مساعد سحاب الذكي</h3>
     <div class="ai-input-container">
-        <input type="text" placeholder="اكتب ميزانيتك ووجهتك..">
+        <input type="text" placeholder="مثلاً: رحلة لليابان بـ 10 آلاف">
         <button>إرسال</button>
     </div>
 </div>
