@@ -56,33 +56,40 @@
                     <label class="text-[10px] font-bold text-sahab-blue block mb-1">التاريخ</label>
                     <div class="flex items-center gap-2">
                         <i data-lucide="calendar" size="18" class="text-gray-400"></i>
+                        <input type="date" class="outline-none text-sm font-bold w-full bg-            <div class="bg-white p-4 md:p-6 rounded-2xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-800">
+                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0 text-right">
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">الموقع / المطار</label>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="map-pin" size="18" class="text-gray-400"></i>
+                        <input type="text" id="destInput" placeholder="المدينة أو المطار" class="outline-none text-sm font-bold w-full">
+                    </div>
+                </div>
+
+                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0 text-right">
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">التاريخ</label>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="calendar" size="18" class="text-gray-400"></i>
                         <input type="date" class="outline-none text-sm font-bold w-full bg-transparent">
                     </div>
                 </div>
-                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0">
-                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">المسافرون</label>
+
+                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0 text-right">
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">عدد المسافرين</label>
                     <div class="flex items-center gap-2">
                         <i data-lucide="users" size="18" class="text-gray-400"></i>
-                        <select class="outline-none text-sm font-bold w-full bg-transparent"><option>1 مسافر</option><option>2 مسافر</option></select>
+                        <select class="outline-none text-sm font-bold w-full bg-transparent">
+                            <option>1 بالغ</option>
+                            <option>2 بالغين</option>
+                            <option>عائلة (أطفال)</option>
+                        </select>
                     </div>
                 </div>
+
                 <button class="bg-sahab-orange text-white font-bold rounded-xl py-4 shadow-lg hover:bg-orange-600 transition flex items-center justify-center gap-2">
                     <i data-lucide="search" size="20"></i> بحث الآن
                 </button>
             </div>
-        </div>
-    </header>
 
-    <section id="destinations" class="py-20 px-6 md:px-12">
-        <h2 class="text-3xl font-bold mb-10 text-right border-r-4 border-sahab-blue pr-4">أشهر الوجهات</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <a href="details.html" class="group bg-white rounded-3xl shadow-md overflow-hidden block border border-gray-100">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1518684666903-c336340397d6?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute top-4 right-4 bg-sahab-orange text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">خصم 20%</div>
-                </div>
-                <div class="p-6 text-right">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">دبي - الإمارات</h3>
                     <div class="flex justify-between items-center text-sahab-blue">
                         <span class="text-2xl font-black">$299</span>
                         <span class="text-gray-400 text-sm flex items-center gap-1"><i data-lucide="clock" size="14"></i> 5 أيام</span>
