@@ -37,47 +37,62 @@
                 استمتع بإقامة فاخرة في أرقى فنادق دبي مع جولات سياحية خاصة تشمل تذاكر دخول المعالم الرئيسية.
             </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                <div class="bg-white p-6 rounded-2xl text-center shadow-sm border border-gray-100">
-                    <i data-lucide="clock" class="mx-auto text-sahab-orange mb-3"></i>
-                    <span class="block font-bold text-gray-800">5 أيام</span>
-                </div>
-                <div class="bg-white p-6 rounded-2xl text-center shadow-sm border border-gray-100">
-                    <i data-lucide="plane" class="mx-auto text-sahab-orange mb-3"></i>
-                    <span class="block font-bold text-gray-800">طيران داخلي</span>
-                </div>
-                <div class="bg-white p-6 rounded-2xl text-center shadow-sm border border-gray-100">
-                    <i data-lucide="hotel" class="mx-auto text-sahab-orange mb-3"></i>
-                    <span class="block font-bold text-gray-800">فندق 5 نجوم</span>
-                </div>
-                <div class="bg-white p-6 rounded-2xl text-center shadow-sm border border-gray-100">
-                    <i data-lucide="users" class="mx-auto text-sahab-orange mb-3"></i>
-                    <span class="block font-bold text-gray-800">مرشد سياحي</span>
-                </div>
-            </div>
-        </div>
+                <header class="hero-bg h-[85vh] flex flex-col items-center justify-center text-white px-4 relative">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-center mb-6 leading-tight drop-shadow-lg">مستشارك الأول للسفر</h1>
+        <p class="text-xl mb-12 opacity-95 font-light text-center">خطط لرحلتك القادمة بكل سهولة واحترافية</p>
 
-        <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl border border-gray-100 h-fit sticky top-10">
-            <div class="text-center mb-8">
-                <p class="text-gray-400 text-sm mb-1 uppercase tracking-widest">سعر الشخص يبدأ من</p>
-                <div class="text-5xl font-black text-sahab-blue">$299</div>
-            </div>
-            
-            <div class="space-y-4">
-                <button class="w-full bg-sahab-orange text-white font-black py-5 rounded-2xl hover:scale-105 transition-transform shadow-xl shadow-orange-200 text-xl">
-                    احجز مقعدك الآن
+        <div class="w-full max-w-5xl">
+            <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-2 px-2">
+                <button class="bg-sahab-orange text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2">
+                    <i data-lucide="plane"></i> حجز طيران
                 </button>
-                <button class="w-full bg-sahab-blue text-white font-bold py-4 rounded-2xl hover:bg-blue-800 transition">
-                    تحميل جدول الرحلة (PDF)
+                <button class="bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
+                    <i data-lucide="hotel"></i> فنادق
+                </button>
+                <button class="bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
+                    <i data-lucide="car"></i> سيارات
+                </button>
+                <button class="bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
+                    <i data-lucide="ship"></i> كروز
+                </button>
+                <button class="bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
+                    <i data-lucide="train"></i> قطارات
                 </button>
             </div>
-            
-            <div class="mt-8 flex items-center justify-center gap-2 text-gray-400 text-sm">
-                <i data-lucide="lock" size="14"></i>
-                <span>دفع آمن 100%</span>
+
+            <div class="bg-white p-3 md:p-5 rounded-3xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-4 text-gray-800 border border-gray-100">
+                <div class="flex items-center gap-3 p-2 md:border-l md:border-gray-100">
+                    <i data-lucide="map-pin" class="text-sahab-blue"></i>
+                    <div class="flex flex-col flex-1">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase">الوجهة</span>
+                        <input type="text" placeholder="من أين؟ إلى أين؟" class="outline-none text-sm font-bold w-full">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 p-2 md:border-l md:border-gray-100">
+                    <i data-lucide="calendar" class="text-sahab-blue"></i>
+                    <div class="flex flex-col flex-1">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase">تاريخ الرحلة</span>
+                        <input type="date" class="outline-none text-sm font-bold bg-transparent w-full">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 p-2 md:border-l md:border-gray-100">
+                    <i data-lucide="armchair" class="text-sahab-blue"></i>
+                    <div class="flex flex-col flex-1">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase">الدرجة</span>
+                        <select class="outline-none text-sm font-bold bg-transparent w-full">
+                            <option>سياحية</option>
+                            <option>رجال أعمال</option>
+                            <option>أولى</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="bg-sahab-orange text-white font-black rounded-2xl py-4 hover:bg-sahab-orange/90 transition shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="search" size="20"></i>
+                    بحث الآن
+                </button>
             </div>
         </div>
-    </main>
+    </header>
 
     <script>lucide.createIcons();</script>
 </body>
