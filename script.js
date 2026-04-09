@@ -1,19 +1,15 @@
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+        // تفعيل الأيقونات
+        lucide.createIcons();
 
-// لإخفاء الأقسام غير النشطة عند التشغيل
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("hotels").style.display = "none";
-    // أضف البقية هنا
-});
+        // كود تبديل الألوان بين الأزرار عند الضغط
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-sahab-orange');
+                    t.classList.add('bg-white/20');
+                });
+                this.classList.remove('bg-white/20');
+                this.classList.add('bg-sahab-orange');
+            });
+        });
