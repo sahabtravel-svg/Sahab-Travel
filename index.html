@@ -134,6 +134,23 @@
             else if(type === 'سيارات') input.placeholder = "مكان استلام السيارة";
             else input.placeholder = "مطار المغادرة أو الوصول";
         }
-    </script>
+    </        // أوامر القائمة الجانبية
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.onclick = () => {
+            sidebar.classList.remove('-right-full');
+            sidebar.classList.add('right-0');
+            overlay.classList.remove('hidden');
+        };
+
+        closeBtn.onclick = overlay.onclick = () => {
+            sidebar.classList.remove('right-0');
+            sidebar.classList.add('-right-full');
+            overlay.classList.add('hidden');
+        };
+>
 </body>
 </html>
