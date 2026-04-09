@@ -117,58 +117,16 @@
     lucide.createIcons();
 
     // 2. الحصول على جميع الأزرار (Tabs) ومدخل الوجهة
-    const tabs = document.querySelectorAll('.tab-btn');
-    const destInput = document.getElementById('destInput');
+    <footer class="bg-sahab-blue text-white py-10 text-center text-sm">
+        <p>© 2026 سحاب ترافيل - جميع الحقوق محفوظة</p>
+    </footer>
 
-    // 3. إضافة وظيفة الضغط لكل زر
-    tabs.forEach(tab => {
-        tab.onclick = function() {
-            // أ. إزالة اللون البرتقالي من جميع الأزرار وإعادة اللون الشفاف
-            tabs.forEach(t => {
-                t.classList.remove('bg-sahab-orange');
-                t.classList.add('bg-white/30');
-            });
-
-            // ب. إضافة اللون البرتقالي للزر الذي تم الضغط عليه حالياً
-            this.classList.remove('bg-white/30');
-            this.classList.add('bg-sahab-orange');
     <script>
+        // 1. تفعيل الأيقونات
         lucide.createIcons();
 
-        window.onload = function() {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const destInput = document.getElementById('destInput');
-
-            tabs.forEach(tab => {
-                tab.onclick = function() {
-                    // تغيير ألوان الأزرار
-                    tabs.forEach(t => {
-                        t.classList.remove('bg-sahab-orange');
-                        t.classList.add('bg-white/30');
-                    });
-                    this.classList.remove('bg-white/30');
-                    this.classList.add('bg-sahab-orange');
-
-                    // تغيير نص الخانة بناءً على الاختيار
-                    const text = this.innerText.trim();
-                    if (text.includes("طيران")) {
-                        destInput.placeholder = "مطار المغادرة أو الوصول";
-                    } else if (text.includes("فنادق")) {
-                        destInput.placeholder = "اسم الفندق أو المدينة";
-                    } else if (text.includes("سيارات")) {
-                        destInput.placeholder = "موقع استلام السيارة";
-                    } else {
-                        destInput.placeholder = "الوجهة أو الموقع";
-                    }
-                };
-            });
-        };
-    <script>
-        // تفعيل الأيقونات
-        lucide.createIcons();
-
-        // تفعيل الأزرار الذكية
-        window.onload = function() {
+        // 2. تفعيل ضغط الأزرار
+        window.addEventListener('DOMContentLoaded', (event) => {
             const tabs = document.querySelectorAll('.tab-btn');
             const destInput = document.getElementById('destInput');
 
@@ -182,7 +140,7 @@
                     this.classList.remove('bg-white/30');
                     this.classList.add('bg-sahab-orange');
 
-                    // تغيير النصوص حسب نوع الحجز
+                    // تغيير النص التوضيحي
                     const service = this.innerText.trim();
                     if (service.includes("طيران")) {
                         destInput.placeholder = "مطار المغادرة أو الوصول";
@@ -195,7 +153,7 @@
                     }
                 };
             });
-        };
+        });
     </script>
 </body>
 </html>
