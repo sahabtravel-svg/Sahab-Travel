@@ -1,59 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
-:root {
-    --primary-blue: #005271;
-    --light-bg: #f4f8fa;
-    --white: #ffffff;
-    --grey-border: #e6eef0;
-}
-
 body {
-    margin: 0;
+    background-color: #f4f8fa !important;
     font-family: 'Tajawal', sans-serif;
-    background-color: var(--light-bg);
+    margin: 0;
     direction: rtl;
 }
 
 header {
-    background: var(--white);
-    padding: 15px;
+    background: white;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #e6eef0;
 }
 
-/* حاوية البطاقات */
+/* حاوية البطاقات مثل تطبيق المسافر */
 .services-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 15px;
+    gap: 15px;
+    padding: 20px;
 }
 
 .card {
-    background: var(--white);
-    border: 1px solid var(--grey-border);
-    border-radius: 12px;
+    background: white;
+    border: 1px solid #e6eef0;
+    border-radius: 15px;
     padding: 20px 10px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 .card .icon {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 8px;
     display: block;
 }
 
 .card span {
-    font-size: 14px;
     font-weight: bold;
-    color: var(--primary-blue);
-}
-
-/* علامة جديد */
-.new-badge {
-    color: #28a745;
-    font-size: 10px;
-    display: block;
-    margin-bottom: 2px;
+    color: #005271;
+    font-size: 14px;
 }
