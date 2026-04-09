@@ -125,9 +125,38 @@
             } else if (type.includes("كروز")) {
                 destInput.placeholder = "وجهة الإبحار (الميناء)";
             } else if (type.includes("قطارات")) {
-                destInput.placeholder = "محطة المغادرة / الوصول";
-            } else {
-                destInput.placeholder = "إلى أين؟";
-            }
+    <script>
+        // 1. تفعيل الأيقونات
+        lucide.createIcons();
+
+        // 2. تشغيل الأزرار عند الضغط
+        window.onload = function() {
+            const allTabs = document.querySelectorAll('.tab-btn');
+            const mainInput = document.getElementById('destInput');
+
+            allTabs.forEach(btn => {
+                btn.onclick = function() {
+                    // مسح اللون البرتقالي من الكل
+                    allTabs.forEach(t => {
+                        t.classList.remove('bg-sahab-orange');
+                        t.classList.add('bg-white/30');
+                    });
+                    // تلوين الزر اللي ضغطت عليه
+                    this.classList.remove('bg-white/30');
+                    this.classList.add('bg-sahab-orange');
+
+                    // تغيير الكلام داخل المربع
+                    const text = this.innerText.trim();
+                    if (text.includes("فنادق")) {
+                        mainInput.placeholder = "اسم الفندق أو المدينة";
+                    } else if (text.includes("سيارات")) {
+                        mainInput.placeholder = "مكان استلام السيارة";
+                    } else {
+                        mainInput.placeholder = "إلى أين؟";
+                    }
+                };
+            });
         };
-    });
+    </script>
+</body>
+</html>
