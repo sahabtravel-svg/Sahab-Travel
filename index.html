@@ -1,16 +1,106 @@
-<main>
-    <div class="services-container">
-        <div class="card">
-            <span class="icon">✈️</span>
-            <span>طيران</span>
-        </div>
-        <div class="card">
-            <span class="icon">🏨</span>
-            <span>الإقامة</span>
-        </div>
-        <div class="card">
-            <span class="icon">🎈</span>
-            <span>أنشطة</span>
-        </div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سحاب ترافل | Sahab Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f8fa;
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+        }
+        header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e6eef0;
+        }
+        .logo-img {
+            width: 120px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #e6eef0;
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .card .icon {
+            font-size: 30px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .card span {
+            font-weight: bold;
+            color: #005271;
+            font-size: 14px;
+        }
+        .new-label {
+            background: #4caf50;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            position: absolute;
+            top: -10px;
+        }
+        .ai-section {
+            background: #2c3e50;
+            margin: 20px;
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="IMG_0223.jpeg" class="logo-img">
+    <h1 style="color: #005271; font-size: 22px;">Sahab Travel</h1>
+</header>
+
+<div class="services-container">
+    <div class="card">
+        <span class="icon">✈️</span>
+        <span>طيران</span>
     </div>
-</main>
+    <div class="card">
+        <span class="icon">🏨</span>
+        <span>الإقامة</span>
+    </div>
+    <div class="card" style="position: relative;">
+        <span class="new-label">جديد</span>
+        <span class="icon">🎈</span>
+        <span>أنشطة</span>
+    </div>
+</div>
+
+<div class="ai-section">
+    <h3>🤖 مساعد سحاب الذكي</h3>
+    <p>اكتب ميزانيتك ووجهتك واترك التخطيط لنا..</p>
+    <input type="text" placeholder="مثلاً: رحلة اقتصادية لليابان">
+</div>
+
+</body>
+</html>
