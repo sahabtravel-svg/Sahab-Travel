@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الرحلة - سحاب ترافيل</title>
+    <title>سحاب ترافيل - بوابتك للعالم</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,94 +12,107 @@
         .bg-sahab-blue { background-color: #004a99; }
         .text-sahab-blue { color: #004a99; }
         .bg-sahab-orange { background-color: #f7941d; }
-        .border-sahab-blue { border-color: #004a99; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-900">
 
-    <nav class="bg-white shadow-sm p-6 flex justify-between items-center border-b-4 border-sahab-blue">
-        <a href="index.html" class="flex items-center gap-2 text-sahab-blue font-bold hover:text-blue-800 transition">
-            <i data-lucide="arrow-right"></i> العودة للرئيسية
-        </a>
-        <div class="font-black text-2xl text-sahab-blue">سحاب ترافيل</div>
+    <nav class="absolute w-full z-20 flex items-center justify-between px-6 py-6 text-white">
+        <div class="flex items-center gap-2 text-2xl font-extrabold">
+            <i data-lucide="plane-takeoff" class="text-sahab-orange"></i>
+            <span>سحاب ترافيل</span>
+        </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
-        <div class="lg:col-span-2">
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1518684666903-c336340397d6?auto=format&fit=crop&w=1200&q=80" class="w-full h-[450px] object-cover rounded-[2.5rem] shadow-2xl mb-8">
-                <span class="absolute top-6 right-6 bg-sahab-orange text-white px-6 py-2 rounded-full font-bold shadow-lg">أكثر طلباً</span>
-            </div>
-            
-<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80" class="w-full h-[300px] md:h-[450px] object-cover rounded-[2.5rem] shadow-2xl mb-8">
-
-            <p class="text-gray-600 leading-relaxed text-lg mb-8 italic border-r-4 border-sahab-orange pr-4">
-                استمتع بإقامة فاخرة في أرقى فنادق دبي مع جولات سياحية خاصة تشمل تذاكر دخول المعالم الرئيسية.
-            </p>
-            
-    <header class="hero-bg h-[85vh] flex flex-col items-center justify-center text-white px-4 relative">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-center mb-6 leading-tight drop-shadow-lg">مستشارك الأول للسفر</h1>
-        <p class="text-xl mb-12 opacity-95 font-light text-center">خطط لرحلتك القادمة بكل سهولة واحترافية</p>
-
-        <div class="w-full max-w-5xl">
-            <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-2 px-2">
-                <button class="tab-btn bg-sahab-orange text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2">
-                    <i data-lucide="plane"></i> حجز طيران
+    <header class="hero-bg min-h-[90vh] flex flex-col items-center justify-center text-white px-4 pt-20">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-center mb-4">مستشارك الأول للسفر</h1>
+        <p class="text-lg opacity-90 mb-10 text-center">خطط لرحلتك القادمة بكل سهولة واحترافية</p>
+        
+        <div class="w-full max-w-4xl">
+            <div class="flex flex-wrap justify-center gap-2 mb-2">
+                <button class="tab-btn bg-sahab-orange text-white px-4 py-2 rounded-t-xl font-bold text-xs md:text-sm flex items-center gap-2">
+                    <i data-lucide="plane" size="16"></i> طيران
                 </button>
-                <button class="tab-btn bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
-                    <i data-lucide="hotel"></i> فنادق
+                <button class="tab-btn bg-white/30 backdrop-blur-md text-white px-4 py-2 rounded-t-xl font-bold text-xs md:text-sm flex items-center gap-2">
+                    <i data-lucide="hotel" size="16"></i> فنادق
                 </button>
-                <button class="tab-btn bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
-                    <i data-lucide="car"></i> سيارات
-                </button>
-                <button class="tab-btn bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
-                    <i data-lucide="ship"></i> كروز
-                </button>
-                <button class="tab-btn bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-t-xl font-bold text-sm flex items-center gap-2 hover:bg-white/30 transition">
-                    <i data-lucide="train"></i> قطارات
+                <button class="tab-btn bg-white/30 backdrop-blur-md text-white px-4 py-2 rounded-t-xl font-bold text-xs md:text-sm flex items-center gap-2">
+                    <i data-lucide="car" size="16"></i> سيارات
                 </button>
             </div>
 
-            <div class="bg-white p-3 md:p-5 rounded-3xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-4 text-gray-800 border border-gray-100">
-                <div class="flex items-center gap-3 p-2 md:border-l border-gray-100">
-                    <i data-lucide="map-pin" class="text-sahab-blue"></i>
-                    <div class="flex flex-col flex-1 text-right">
-                        <span class="text-[10px] font-bold text-gray-400">الوجهة</span>
-                        <input type="text" placeholder="إلى أين؟" class="outline-none text-sm font-bold w-full">
+            <div class="bg-white p-4 md:p-6 rounded-2xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-4 text-gray-800">
+                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0">
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">الوجهة</label>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="map-pin" size="18" class="text-gray-400"></i>
+                        <input type="text" id="destInput" placeholder="إلى أين؟" class="outline-none text-sm font-bold w-full">
                     </div>
                 </div>
-                <div class="flex items-center gap-3 p-2 md:border-l border-gray-100">
-                    <i data-lucide="calendar" class="text-sahab-blue"></i>
-                    <div class="flex flex-col flex-1 text-right">
-                        <span class="text-[10px] font-bold text-gray-400">التاريخ</span>
+                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0">
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">التاريخ</label>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="calendar" size="18" class="text-gray-400"></i>
                         <input type="date" class="outline-none text-sm font-bold w-full bg-transparent">
                     </div>
                 </div>
-                <div class="flex items-center gap-3 p-2 md:border-l border-gray-100">
-                    <i data-lucide="users" class="text-sahab-blue"></i>
-                    <div class="flex flex-col flex-1 text-right">
-                        <span class="text-[10px] font-bold text-gray-400">المسافرون</span>
-                        <select class="outline-none text-sm font-bold w-full bg-transparent"><option>1 مسافر</option><option>2 مسافرين</option></select>
+                <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0">
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">المسافرون</label>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="users" size="18" class="text-gray-400"></i>
+                        <select class="outline-none text-sm font-bold w-full bg-transparent"><option>1 مسافر</option><option>2 مسافر</option></select>
                     </div>
                 </div>
-                <button class="bg-sahab-orange text-white font-black rounded-2xl py-4 hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2">
-                    <i data-lucide="search" size="20"></i> بحث
+                <button class="bg-sahab-orange text-white font-bold rounded-xl py-4 shadow-lg hover:bg-orange-600 transition flex items-center justify-center gap-2">
+                    <i data-lucide="search" size="20"></i> بحث الآن
                 </button>
             </div>
         </div>
     </header>
 
-                        </select>
+    <section id="destinations" class="py-20 px-6 md:px-12">
+        <h2 class="text-3xl font-bold mb-10 text-right border-r-4 border-sahab-blue pr-4">أشهر الوجهات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="details.html" class="group bg-white rounded-3xl shadow-md overflow-hidden block border border-gray-100">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518684666903-c336340397d6?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 right-4 bg-sahab-orange text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">خصم 20%</div>
+                </div>
+                <div class="p-6 text-right">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">دبي - الإمارات</h3>
+                    <div class="flex justify-between items-center text-sahab-blue">
+                        <span class="text-2xl font-black">$299</span>
+                        <span class="text-gray-400 text-sm flex items-center gap-1"><i data-lucide="clock" size="14"></i> 5 أيام</span>
                     </div>
                 </div>
-                <button class="bg-sahab-orange text-white font-black rounded-2xl py-4 hover:bg-sahab-orange/90 transition shadow-lg flex items-center justify-center gap-2">
-                    <i data-lucide="search" size="20"></i>
-                    بحث الآن
-                </button>
+            </a>
             </div>
-        </div>
-    </header>
+    </section>
 
-    <script>lucide.createIcons();</script>
+    <footer class="bg-sahab-blue text-white py-10 text-center text-sm">
+        <p>© 2026 سحاب ترافيل - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const tabs = document.querySelectorAll('.tab-btn');
+        const destInput = document.getElementById('destInput');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => { t.classList.remove('bg-sahab-orange'); t.classList.add('bg-white/30'); });
+                this.classList.remove('bg-white/30');
+                this.classList.add('bg-sahab-orange');
+                
+                const type = this.innerText.trim();
+                if(type === "فنادق") destInput.placeholder = "اسم الفندق أو المدينة";
+                else if(type === "سيارات") destInput.placeholder = "مكان استلام السيارة";
+                else destInput.placeholder = "إلى أين؟";
+            });
+        });
+    </script>
 </body>
 </html>
