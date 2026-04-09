@@ -96,29 +96,38 @@
         <p>© 2026 سحاب ترافيل - جميع الحقوق محفوظة</p>
     </footer>
 
-    <script>
-            <a href="paris.html" class="group bg-white rounded-3xl shadow-md overflow-hidden block border border-gray-100">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="p-6 text-right">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 font-black">باريس - فرنسا</h3>
-                    <div class="flex justify-between items-center text-sahab-blue">
-                        <span class="text-2xl font-black">$550</span>
-                        <span class="text-gray-400 text-sm flex items-center gap-1"><i data-lucide="clock" size="14"></i> 7 أيام</span>
-                    </div>
-                </div>
-            </a>
+    // 1. تفعيل الأيقونات (Lucide Icons)
+    lucide.createIcons();
 
-            <a href="london.html" class="group bg-white rounded-3xl shadow-md overflow-hidden block border border-gray-100">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="p-6 text-right">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 font-black">لندن - بريطانيا</h3>
-                    <div class="flex justify-between items-center text-sahab-blue">
-                        <span class="text-2xl font-black">$480</span>
-                        <span class="text-gray-400 text-sm flex items-center gap-1"><i data-lucide="clock" size="14"></i> 6 أيام</span>
-                    </div>
-                </div>
-            </a>
+    // 2. الحصول على جميع الأزرار (Tabs) ومدخل الوجهة
+    const tabs = document.querySelectorAll('.tab-btn');
+    const destInput = document.getElementById('destInput');
+
+    // 3. إضافة وظيفة الضغط لكل زر
+    tabs.forEach(tab => {
+        tab.onclick = function() {
+            // أ. إزالة اللون البرتقالي من جميع الأزرار وإعادة اللون الشفاف
+            tabs.forEach(t => {
+                t.classList.remove('bg-sahab-orange');
+                t.classList.add('bg-white/30');
+            });
+
+            // ب. إضافة اللون البرتقالي للزر الذي تم الضغط عليه حالياً
+            this.classList.remove('bg-white/30');
+            this.classList.add('bg-sahab-orange');
+
+            // ج. تغيير نص التلميح (Placeholder) بناءً على نوع الخدمة
+            const type = this.innerText.trim();
+            if (type.includes("فنادق")) {
+                destInput.placeholder = "اسم الفندق أو المدينة";
+            } else if (type.includes("سيارات")) {
+                destInput.placeholder = "مكان استلام السيارة";
+            } else if (type.includes("كروز")) {
+                destInput.placeholder = "وجهة الإبحار (الميناء)";
+            } else if (type.includes("قطارات")) {
+                destInput.placeholder = "محطة المغادرة / الوصول";
+            } else {
+                destInput.placeholder = "إلى أين؟";
+            }
+        };
+    });
