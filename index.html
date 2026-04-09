@@ -122,44 +122,33 @@
             // ب. إضافة اللون البرتقالي للزر الذي تم الضغط عليه حالياً
             this.classList.remove('bg-white/30');
             this.classList.add('bg-sahab-orange');
-
-            // ج. تغيير نص التلميح (Placeholder) بناءً على نوع الخدمة
-            const type = this.innerText.trim();
-            if (type.includes("فنادق")) {
-                destInput.placeholder = "اسم الفندق أو المدينة";
-            } else if (type.includes("سيارات")) {
-                destInput.placeholder = "مكان استلام السيارة";
-            } else if (type.includes("كروز")) {
-                destInput.placeholder = "وجهة الإبحار (الميناء)";
-            } else if (type.includes("قطارات")) {
     <script>
-        // 1. تفعيل الأيقونات
         lucide.createIcons();
 
-        // 2. تشغيل الأزرار عند الضغط
         window.onload = function() {
-            const allTabs = document.querySelectorAll('.tab-btn');
-            const mainInput = document.getElementById('destInput');
+            const tabs = document.querySelectorAll('.tab-btn');
+            const destInput = document.getElementById('destInput');
 
-            allTabs.forEach(btn => {
-                btn.onclick = function() {
-                    // مسح اللون البرتقالي من الكل
-                    allTabs.forEach(t => {
+            tabs.forEach(tab => {
+                tab.onclick = function() {
+                    // تغيير ألوان الأزرار
+                    tabs.forEach(t => {
                         t.classList.remove('bg-sahab-orange');
                         t.classList.add('bg-white/30');
                     });
-                    // تلوين الزر اللي ضغطت عليه
                     this.classList.remove('bg-white/30');
                     this.classList.add('bg-sahab-orange');
 
-                    // تغيير الكلام داخل المربع
+                    // تغيير نص الخانة بناءً على الاختيار
                     const text = this.innerText.trim();
-                    if (text.includes("فنادق")) {
-                        mainInput.placeholder = "اسم الفندق أو المدينة";
+                    if (text.includes("طيران")) {
+                        destInput.placeholder = "مطار المغادرة أو الوصول";
+                    } else if (text.includes("فنادق")) {
+                        destInput.placeholder = "اسم الفندق أو المدينة";
                     } else if (text.includes("سيارات")) {
-                        mainInput.placeholder = "مكان استلام السيارة";
+                        destInput.placeholder = "موقع استلام السيارة";
                     } else {
-                        mainInput.placeholder = "إلى أين؟";
+                        destInput.placeholder = "الوجهة أو الموقع";
                     }
                 };
             });
