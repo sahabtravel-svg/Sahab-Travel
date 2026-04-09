@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -7,40 +7,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #005271; --accent: #ff9800; --bg: #f8fafc; }
-        body { background-color: var(--bg); font-family: 'Tajawal', sans-serif; margin: 0; padding-bottom: 40px; color: #333; }
+        body { background-color: var(--bg); font-family: 'Tajawal', sans-serif; margin: 0; padding-bottom: 40px; }
         
         /* الهيدر والشعار */
         header { background: white; padding: 25px 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
-        .logo { width: 140px; height: auto; display: block; margin: 0 auto; }
+        .logo { width: 150px; height: auto; display: block; margin: 0 auto; }
 
-        /* الشبكة الأساسية للأيقونات */
+        /* شبكة الأيقونات الأساسية */
         .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 15px; }
         .sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 15px 20px; }
 
         .card { background: white; border-radius: 16px; padding: 18px 5px; text-align: center; 
                 text-decoration: none; color: #333; border: 1px solid #edf2f7; transition: 0.2s; 
-                display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+                display: flex; flex-direction: column; align-items: center; }
         .card:active { transform: scale(0.95); background: #f1f5f9; }
         
-        /* أيقونات ملونة وواضحة */
-        .card img { width: 42px; height: 42px; margin-bottom: 8px; object-fit: contain; }
+        /* أيقونات ملونة واحترافية */
+        .card img { width: 45px; height: 45px; margin-bottom: 8px; object-fit: contain; }
         .card span { font-weight: bold; font-size: 13px; }
         
         .section-title { padding: 10px 20px; font-weight: bold; color: var(--primary); font-size: 15px; }
 
-        /* صندوق المساعد الذكي */
+        /* قسم المساعد الذكي - الربط الحالي مع Formspree */
         .ai-box { background: linear-gradient(135deg, #005271 0%, #003a51 100%); 
-                  margin: 15px; padding: 25px; border-radius: 24px; color: white; text-align: center; 
-                  box-shadow: 0 10px 20px rgba(0,82,113,0.2); }
-        .ai-box h3 { margin-top: 0; font-size: 18px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+                  margin: 15px; padding: 25px; border-radius: 24px; color: white; text-align: center; }
         
         input { width: 90%; padding: 14px; margin: 6px 0; border-radius: 12px; border: none; outline: none; 
-                font-family: 'Tajawal'; font-size: 14px; background: rgba(255,255,255,0.95); }
+                font-family: 'Tajawal'; font-size: 14px; }
         
         .btn-send { background: var(--accent); color: white; border: none; padding: 14px; 
                     border-radius: 12px; font-weight: bold; width: 90%; cursor: pointer; 
-                    font-family: 'Tajawal'; font-size: 16px; margin-top: 10px; transition: 0.3s; }
-        .btn-send:hover { background: #e68a00; }
+                    font-family: 'Tajawal'; font-size: 16px; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -78,7 +75,7 @@
     
     <form action="https://formspree.io/f/xreovqzr" method="POST">
         <input type="text" name="destination" placeholder="إلى أين تريد الذهاب؟" required>
-        <input type="text" name="budget" placeholder="الميزانية التقريبية بالريال" required>
+        <input type="text" name="budget" placeholder="الميزانية التقريبية" required>
         <input type="text" name="whatsapp" placeholder="رقم الواتساب للتواصل" required>
         <button type="submit" class="btn-send">طلب عرض السعر الآن</button>
     </form>
