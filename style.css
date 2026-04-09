@@ -1,72 +1,59 @@
-/* تنسيقات عامة تشبه التطبيقات الحديثة */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
 :root {
-    --main-blue: #005271;
-    --bg-color: #f4f8fa;
-    --card-white: #ffffff;
-    --text-dark: #1a1a1a;
+    --primary-blue: #005271;
+    --light-bg: #f4f8fa;
+    --white: #ffffff;
+    --grey-border: #e6eef0;
 }
 
 body {
-    background-color: var(--bg-color);
-    font-family: 'Tajawal', sans-serif;
     margin: 0;
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--light-bg);
     direction: rtl;
-    color: var(--text-dark);
 }
 
 header {
-    background: var(--card-white);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #e6eef0;
-}
-
-/* تصميم البطاقات مثل المسافر */
-.main-services {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 20px;
-}
-
-.service-card {
-    background: var(--card-white);
-    border: 1px solid #e6eef0;
-    border-radius: 12px;
+    background: var(--white);
     padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+/* حاوية البطاقات */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 15px;
 }
 
-.service-card img {
-    width: 40px;
-    margin-bottom: 8px;
-}
-
-.service-card span {
-    display: block;
-    font-weight: bold;
-    font-size: 14px;
-    color: var(--main-blue);
-}
-
-/* قسم المساعد الذكي بشكل أنيق */
-.ai-section {
-    background: var(--main-blue);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 15px;
-    color: white;
+.card {
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 12px;
+    padding: 20px 10px;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-input, button {
-    border-radius: 8px;
-    border: none;
-    padding: 12px;
+.card .icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.card span {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+/* علامة جديد */
+.new-badge {
+    color: #28a745;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 2px;
 }
