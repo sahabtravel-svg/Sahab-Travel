@@ -3,126 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سحاب ترافل | Sahab Travel</title>
+    <title>Sahab Travel | سحاب ترافل</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <style>* {
-    word-spacing: 2px;
-    letter-spacing: 0.5px;
-}
-h1 {
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-        body {
-            background-color: #f4f8fa;
-            font-family: 'Tajawal', sans-serif;
-            margin: 0;
-            padding-bottom: 50px;
-        }
-        header {
-            background: white;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #e6eef0;
-        }
-        .logo-img {
-            width: 120px;
-            display: block;
-            margin: 0 auto 10px;
-        }
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            padding: 20px;
-        }
-        .card {
-            background: white;
-            border: 1px solid #e6eef0;
-            border-radius: 15px;
-            <div class="services-container">
-    <a href="https://www.skyscanner.net" target="_blank" style="text-decoration: none;">
-        <div class="card">
-            <span class="icon">✈️</span>
-            <span>طيران</span>
-        </div>
-    </a>
-
-    <a href="https://www.booking.com" target="_blank" style="text-decoration: none;">
-        <div class="card">
-            <span class="icon">🏨</span>
-            <span>الإقامة</span>
-        </div>
-    </a>
-
-    <a href="https://www.tripadvisor.com" target="_blank" style="text-decoration: none;">
-        <div class="card" style="position: relative;">
-            <span class="new-label">جديد</span>
-            <span class="icon">🎈</span>
-            <span>أنشطة</span>
-        </div>
-    </a>
-</div>
-
-        .new-label {
-            background: #4caf50;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            position: absolute;
-            top: -10px;
-        }
-        .ai-section {
-            background: #2c3e50;
-            margin: 20px;
-            padding: 25px;
-            border-radius: 20px;
-            color: white;
-            text-align: center;
-        }
-        input {
-            width: 80%;
-            padding: 12px;
-            border-radius: 10px;
-            border: none;
-            margin-top: 10px;
-        }
+    <style>
+        body { background-color: #f4f8fa; font-family: 'Tajawal', sans-serif; margin: 0; direction: rtl; }
+        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #e6eef0; }
+        .logo-img { width: 120px; display: block; margin: 0 auto 10px; }
+        
+        .services-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 20px; }
+        .small-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 20px 20px; }
+        
+        .card { background: white; border: 1px solid #e6eef0; border-radius: 15px; padding: 20px 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); text-decoration: none; display: block; }
+        .card .icon { font-size: 28px; margin-bottom: 8px; display: block; }
+        .card span { font-weight: bold; color: #005271; font-size: 14px; }
+        
+        .section-title { padding: 0 20px; font-weight: bold; color: #555; margin-top: 10px; font-size: 16px; }
+        
+        .ai-section { background: #2c3e50; margin: 20px; padding: 20px; border-radius: 20px; color: white; text-align: center; }
+        .ai-input-container { display: flex; gap: 8px; margin-top: 15px; justify-content: center; }
+        input { flex: 1; padding: 12px; border-radius: 10px; border: none; max-width: 250px; }
+        button { padding: 10px 20px; border-radius: 10px; border: none; background: white; color: #2c3e50; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header>
     <img src="IMG_0223.jpeg" class="logo-img">
-    <h1 style="color: #005271; font-size: 22px;">Sahab Travel</h1>
+    <h1 style="color: #005271; font-size: 22px; margin: 0;">Sahab Travel</h1>
 </header>
 
 <div class="services-container">
-    <div class="card">
+    <a href="https://www.skyscanner.net" class="card">
         <span class="icon">✈️</span>
         <span>طيران</span>
-    </div>
-    <div class="card">
+    </a>
+    <a href="https://www.booking.com" class="card">
         <span class="icon">🏨</span>
         <span>الإقامة</span>
-    </div>
+    </a>
     <div class="card" style="position: relative;">
-        <span class="new-label">جديد</span>
+        <span style="background: #4caf50; color: white; font-size: 9px; padding: 2px 5px; border-radius: 4px; position: absolute; top: 5px; right: 5px;">جديد</span>
         <span class="icon">🎈</span>
         <span>أنشطة</span>
     </div>
 </div>
 
-
-    <h3>🤖 مساعد سحاب الذكي</h3>
-    <p>اكتب ميزانيتك ووجهتك واترك التخطيط لنا..</p>
-    <input type="text" placeholder="مثلاً: رحلة اقتصادية لليابان">
-</div>
-</div> 
-
-<p style="padding-right: 20px; font-weight: bold; color: #555; margin-top: 20px;">المزيد من الخدمات</p>
-<div class="services-container" style="grid-template-columns: repeat(4, 1fr); padding-top: 0;">
+<p class="section-title">المزيد من الخدمات</p>
+<div class="small-services">
     <div class="card" style="padding: 10px 5px;">
         <span class="icon" style="font-size: 20px;">🚗</span>
         <span style="font-size: 11px;">سيارات</span>
@@ -141,35 +68,14 @@ h1 {
     </div>
 </div>
 
-    </div> <p style="padding-right: 20px; font-weight: bold; color: #555; margin-top: 30px;">المزيد من الخدمات</p>
-    <div class="services-container" style="grid-template-columns: repeat(4, 1fr); padding-top: 0;">
-        <div class="card" style="padding: 10px 5px;">
-            <span class="icon" style="font-size: 20px;">🚗</span>
-            <span style="font-size: 11px;">سيارات</span>
-        </div>
-        <div class="card" style="padding: 10px 5px;">
-            <span class="icon" style="font-size: 20px;">🚆</span>
-            <span style="font-size: 11px;">قطار</span>
-        </div>
-        <div class="card" style="padding: 10px 5px;">
-            <span class="icon" style="font-size: 20px;">🚢</span>
-            <span style="font-size: 11px;">كروز</span>
-        </div>
-        <div class="card" style="padding: 10px 5px;">
-            <span class="icon" style="font-size: 20px;">💬</span>
-            <span style="font-size: 11px;">المزيد</span>
-        </div>
+<div class="ai-section">
+    <h3 style="margin: 0;">🤖 مساعد سحاب الذكي</h3>
+    <p style="font-size: 13px; opacity: 0.9;">اكتب ميزانيتك ووجهتك واترك التخطيط لنا..</p>
+    <div class="ai-input-container">
+        <input type="text" placeholder="مثلاً: رحلة لليابان بـ 10 آلاف">
+        <button>إرسال</button>
     </div>
-
-    <div class="ai-section" style="margin-top: 40px;">
-        <h3>🤖 مساعد سحاب الذكي</h3>
-        <p>اكتب ميزانيتك ووجهتك واترك التخطيط لنا..</p>
-        <div style="display: flex; gap: 5px; justify-content: center;">
-             <input type="text" placeholder="مثلاً: رحلة لليابان بـ 10 آلاف" style="width: 70%; margin-top: 0;">
-             <button style="background: #ffffff; color: #2c3e50; font-weight: bold; cursor: pointer;">إرسال</button>
-        </div>
-    </div>
+</div>
 
 </body>
 </html>
-
