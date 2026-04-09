@@ -6,74 +6,80 @@
     <title>Sahab Travel | سحاب ترافل</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #f4f8fa; font-family: 'Tajawal', sans-serif; margin: 0; direction: rtl; }
-        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #e6eef0; }
-        .logo-img { width: 100px; display: block; margin: 0 auto 10px; }
+        body { background-color: #f8fafb; font-family: 'Tajawal', sans-serif; margin: 0; direction: rtl; }
+        header { background: white; padding: 15px; text-align: center; border-bottom: 1px solid #eef2f4; }
+        .logo-img { width: 90px; display: block; margin: 0 auto 5px; }
         
-        .services-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 20px; }
-        .small-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 20px 20px; }
+        /* حاوية الأزرار الكبيرة */
+        .services-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; }
         
-        .card { background: white; border: 1px solid #e6eef0; border-radius: 15px; padding: 20px 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        /* حاوية الأزرار الصغيرة */
+        .small-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 0 15px 20px; }
         
-        /* ضبط حجم الأيقونات الملونة */
-        .service-icon-img { width: 45px; height: 45px; margin-bottom: 8px; object-fit: contain; }
-        .small-icon-img { width: 28px; height: 28px; margin-bottom: 5px; object-fit: contain; }
+        /* تصميم البطاقة (Card) */
+        .card { background: white; border: 1px solid #eef2f4; border-radius: 12px; padding: 15px 5px; text-align: center; text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
+        .card:active { transform: scale(0.95); background-color: #f0f7ff; }
+
+        /* أيقونات تشبه أسلوب المسافر (خطوط زرقاء) */
+        .main-icon { width: 45px; height: 45px; margin-bottom: 8px; }
+        .sub-icon { width: 30px; height: 30px; margin-bottom: 5px; }
         
-        .card span { font-weight: bold; color: #005271; font-size: 13px; }
-        .section-title { padding: 0 20px; font-weight: bold; color: #555; margin-top: 20px; font-size: 15px; }
+        .card span { font-weight: bold; color: #1a1a1a; font-size: 13px; }
+        .section-title { padding: 0 15px; font-weight: bold; color: #4a4a4a; margin-top: 15px; font-size: 14px; }
         
-        .ai-section { background: #2c3e50; margin: 20px; padding: 25px; border-radius: 20px; color: white; text-align: center; }
-        .ai-input-container { display: flex; gap: 8px; margin-top: 15px; justify-content: center; }
-        input { flex: 1; padding: 12px; border-radius: 10px; border: none; max-width: 250px; outline: none; }
-        button { padding: 10px 20px; border-radius: 10px; border: none; background: white; color: #2c3e50; font-weight: bold; cursor: pointer; }
+        /* المساعد الذكي */
+        .ai-section { background: #1a2b3c; margin: 15px; padding: 20px; border-radius: 15px; color: white; text-align: center; }
+        .ai-input-container { display: flex; gap: 8px; margin-top: 12px; }
+        input { flex: 1; padding: 10px; border-radius: 8px; border: none; outline: none; font-family: 'Tajawal'; }
+        button { padding: 10px 15px; border-radius: 8px; border: none; background: #ffffff; color: #1a2b3c; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header>
     <img src="IMG_0223.jpeg" class="logo-img">
-    <h1 style="color: #005271; font-size: 20px; margin: 0;">Sahab Travel</h1>
+    <h1 style="color: #005271; font-size: 18px; margin: 0;">Sahab Travel</h1>
 </header>
 
 <div class="services-container">
     <a href="https://www.skyscanner.net" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="service-icon-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" class="main-icon">
         <span>طيران</span>
     </a>
     <a href="https://www.booking.com" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3669/3669919.png" class="service-icon-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/3030/3030335.png" class="main-icon">
         <span>الإقامة</span>
     </a>
     <div class="card" style="position: relative;">
-        <span style="background: #4caf50; color: white; font-size: 8px; padding: 2px 5px; border-radius: 4px; position: absolute; top: 8px; right: 8px;">جديد</span>
-        <img src="https://cdn-icons-png.flaticon.com/512/3125/3125867.png" class="service-icon-img">
+        <span style="background: #4caf50; color: white; font-size: 8px; padding: 1px 4px; border-radius: 3px; position: absolute; top: 8px; right: 8px;">جديد</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/3513/3513019.png" class="main-icon">
         <span>أنشطة</span>
     </div>
 </div>
 
 <p class="section-title">المزيد من الخدمات</p>
 <div class="small-services">
-    <div class="card" style="padding: 10px 5px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" class="small-icon-img">
-        <span style="font-size: 10px;">سيارات</span>
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" class="sub-icon">
+        <span style="font-size: 11px;">سيارات</span>
     </div>
-    <div class="card" style="padding: 10px 5px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/619/619043.png" class="small-icon-img">
-        <span style="font-size: 10px;">قطار</span>
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3119/3119338.png" class="sub-icon">
+        <span style="font-size: 11px;">قطار</span>
     </div>
-    <div class="card" style="padding: 10px 5px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/931/931949.png" class="small-icon-img">
-        <span style="font-size: 10px;">كروز</span>
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/912/912667.png" class="sub-icon">
+        <span style="font-size: 11px;">كروز</span>
     </div>
-    <div class="card" style="padding: 10px 5px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/570/570223.png" class="small-icon-img">
-        <span style="font-size: 10px;">المزيد</span>
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" class="sub-icon">
+        <span style="font-size: 11px;">المزيد</span>
     </div>
 </div>
 
 <div class="ai-section">
-    <h3 style="margin: 0;">🤖 مساعد سحاب الذكي</h3>
-    <p style="font-size: 13px; opacity: 0.9; margin-top: 5px;">اكتب ميزانيتك ووجهتك واترك التخطيط لنا..</p>
+    <h3 style="margin: 0; font-size: 16px;">🤖 مساعد سحاب الذكي</h3>
+    <p style="font-size: 12px; opacity: 0.8; margin: 5px 0;">خطط لرحلتك القادمة بالذكاء الاصطناعي</p>
     <div class="ai-input-container">
         <input type="text" placeholder="مثلاً: رحلة لليابان بـ 10 آلاف">
         <button>إرسال</button>
