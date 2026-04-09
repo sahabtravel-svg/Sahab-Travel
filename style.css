@@ -1,40 +1,72 @@
+/* تنسيقات عامة تشبه التطبيقات الحديثة */
+:root {
+    --main-blue: #005271;
+    --bg-color: #f4f8fa;
+    --card-white: #ffffff;
+    --text-dark: #1a1a1a;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    direction: rtl;
+    color: var(--text-dark);
+}
+
+header {
+    background: var(--card-white);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e6eef0;
+}
+
+/* تصميم البطاقات مثل المسافر */
 .main-services {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 12px;
     padding: 20px;
-    background-color: #f0f7f9; /* لون خلفية مريح مثل المسافر */
 }
 
 .service-card {
-    background: #ffffff;
+    background: var(--card-white);
     border: 1px solid #e6eef0;
     border-radius: 12px;
-    padding: 20px 10px;
+    padding: 15px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: 0.3s;
 }
 
-.service-card .icon {
-    font-size: 30px;
-    margin-bottom: 10px;
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 40px;
+    margin-bottom: 8px;
 }
 
 .service-card span {
-    color: #1a1a1a;
+    display: block;
     font-weight: bold;
     font-size: 14px;
+    color: var(--main-blue);
 }
 
-/* علامة "جديد" الخضراء */
-.badge {
-    position: absolute;
-    top: -10px;
-    right: 10px;
-    background: #4caf50;
+/* قسم المساعد الذكي بشكل أنيق */
+.ai-section {
+    background: var(--main-blue);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
     color: white;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 4px;
+    text-align: center;
+}
+
+input, button {
+    border-radius: 8px;
+    border: none;
+    padding: 12px;
 }
