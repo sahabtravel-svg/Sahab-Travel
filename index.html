@@ -9,35 +9,29 @@
         :root { --primary: #005271; --accent: #ff9800; --bg: #f8fafc; }
         body { background-color: var(--bg); font-family: 'Tajawal', sans-serif; margin: 0; padding-bottom: 40px; }
         
-        /* الهيدر والشعار */
-        header { background: white; padding: 25px 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
-        .logo { width: 150px; height: auto; display: block; margin: 0 auto; }
+        /* الهيدر */
+        header { background: white; padding: 20px 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .logo { width: 140px; height: auto; display: block; margin: 0 auto; }
 
-        /* شبكة الأيقونات الأساسية */
-        .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 15px; }
-        .sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 15px 20px; }
-
-        .card { background: white; border-radius: 16px; padding: 18px 5px; text-align: center; 
-                text-decoration: none; color: #333; border: 1px solid #edf2f7; transition: 0.2s; 
-                display: flex; flex-direction: column; align-items: center; }
-        .card:active { transform: scale(0.95); background: #f1f5f9; }
+        /* الشبكة الأساسية */
+        .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; }
+        .card { background: white; border-radius: 15px; padding: 15px 5px; text-align: center; 
+                text-decoration: none; color: #333; border: 1px solid #edf2f7; display: flex; flex-direction: column; align-items: center; }
         
-        /* أيقونات ملونة واحترافية */
-        .card img { width: 45px; height: 45px; margin-bottom: 8px; object-fit: contain; }
+        /* أيقونات ملونة جديدة */
+        .card img { width: 40px; height: 40px; margin-bottom: 8px; }
         .card span { font-weight: bold; font-size: 13px; }
-        
-        .section-title { padding: 10px 20px; font-weight: bold; color: var(--primary); font-size: 15px; }
 
-        /* قسم المساعد الذكي - الربط الحالي مع Formspree */
+        /* الخدمات الإضافية */
+        .section-title { padding: 10px 20px; font-weight: bold; color: var(--primary); font-size: 15px; }
+        .sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 0 15px 20px; }
+
+        /* صندوق المساعد الذكي */
         .ai-box { background: linear-gradient(135deg, #005271 0%, #003a51 100%); 
-                  margin: 15px; padding: 25px; border-radius: 24px; color: white; text-align: center; }
-        
-        input { width: 90%; padding: 14px; margin: 6px 0; border-radius: 12px; border: none; outline: none; 
-                font-family: 'Tajawal'; font-size: 14px; }
-        
-        .btn-send { background: var(--accent); color: white; border: none; padding: 14px; 
-                    border-radius: 12px; font-weight: bold; width: 90%; cursor: pointer; 
-                    font-family: 'Tajawal'; font-size: 16px; margin-top: 10px; }
+                  margin: 15px; padding: 25px; border-radius: 20px; color: white; text-align: center; }
+        input { width: 90%; padding: 12px; margin: 6px 0; border-radius: 10px; border: none; outline: none; font-family: 'Tajawal'; }
+        .btn-send { background: var(--accent); color: white; border: none; padding: 12px; 
+                    border-radius: 10px; font-weight: bold; width: 90%; cursor: pointer; font-family: 'Tajawal'; font-size: 16px; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -47,18 +41,9 @@
 </header>
 
 <div class="main-grid">
-    <a href="#" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png">
-        <span>طيران</span>
-    </a>
-    <a href="#" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2983/2983803.png">
-        <span>فنادق</span>
-    </a>
-    <a href="#" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3125/3125867.png">
-        <span>أنشطة</span>
-    </a>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png"><span>طيران</span></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2983/2983803.png"><span>فنادق</span></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3125/3125867.png"><span>أنشطة</span></div>
 </div>
 
 <p class="section-title">خدمات إضافية</p>
@@ -71,13 +56,11 @@
 
 <div class="ai-box">
     <h3>🤖 مساعد سحاب الذكي</h3>
-    <p style="font-size: 13px; opacity: 0.9;">أخبرنا بوجهتك وميزانيتك وسنصمم لك الرحلة المثالية</p>
-    
     <form action="https://formspree.io/f/xreovqzr" method="POST">
         <input type="text" name="destination" placeholder="إلى أين تريد الذهاب؟" required>
-        <input type="text" name="budget" placeholder="الميزانية التقريبية" required>
-        <input type="text" name="whatsapp" placeholder="رقم الواتساب للتواصل" required>
-        <button type="submit" class="btn-send">طلب عرض السعر الآن</button>
+        <input type="text" name="budget" placeholder="الميزانية بالريال" required>
+        <input type="text" name="whatsapp" placeholder="رقم الواتساب" required>
+        <button type="submit" class="btn-send">طلب عرض السعر</button>
     </form>
 </div>
 
