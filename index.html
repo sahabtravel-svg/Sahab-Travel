@@ -3,72 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سحاب ترافل | Sahab Travel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>سياحة - اكتشف العالم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #005271; --accent: #ff9800; --bg: #f8fafc; }
-        body { background-color: var(--bg); font-family: 'Tajawal', sans-serif; margin: 0; padding-bottom: 40px; }
-        
-        /* تصميم الهيدر الجديد */
-        header { background: white; padding: 15px 0; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo { width: 130px; height: auto; margin-bottom: 10px; }
-        
-        .nav-menu { display: flex; justify-content: center; gap: 25px; border-top: 1px solid #f1f1f1; padding-top: 10px; }
-        .nav-menu a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .nav-menu a:hover { color: var(--accent); }
-
-        /* الشبكة والأيقونات */
-        .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 20px 15px; }
-        .card { background: white; border-radius: 18px; padding: 20px 5px; text-align: center; border: 1px solid #edf2f7; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .card img { width: 42px; height: 42px; margin-bottom: 8px; }
-        .card span { display: block; font-weight: bold; font-size: 14px; }
-
-        .section-title { padding: 10px 20px; font-weight: bold; color: var(--primary); }
-        .sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 15px 20px; }
-        .small-card { background: white; border-radius: 12px; padding: 12px 5px; text-align: center; border: 1px solid #edf2f7; }
-        .small-card img { width: 30px; height: 30px; }
-        .small-card span { display: block; font-size: 11px; margin-top: 5px; }
-
-        /* المساعد الذكي */
-        .ai-box { background: linear-gradient(135deg, #005271 0%, #003a51 100%); margin: 15px; padding: 25px; border-radius: 25px; color: white; text-align: center; box-shadow: 0 10px 20px rgba(0,82,113,0.2); }
-        input { width: 85%; padding: 12px; margin: 8px 0; border-radius: 10px; border: none; font-family: 'Tajawal'; }
-        .btn-send { background: var(--accent); color: white; border: none; padding: 14px 40px; border-radius: 12px; font-weight: bold; width: 85%; margin-top: 10px; font-family: 'Tajawal'; cursor: pointer; }
+        body { font-family: 'Cairo', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-<header>
-    <img src="logo.png" alt="سحاب ترافل" class="logo">
-    <nav class="nav-menu">
-        <a href="index.html">الرئيسية</a>
-        <a href="offers.html">العروض</a>
-        <a href="about.html">من نحن</a>
+    <nav class="absolute w-full z-10 flex items-center justify-between px-10 py-6 text-white">
+        <div class="text-3xl font-extrabold tracking-wider">تـرحـال</div>
+        <div class="hidden md:flex space-x-reverse space-x-8 font-medium">
+            <a href="#" class="hover:text-blue-200 transition">الرحلات</a>
+            <a href="#" class="hover:text-blue-200 transition">الفنادق</a>
+            <a href="#" class="hover:text-blue-200 transition">العروض</a>
+            <a href="#" class="hover:text-blue-200 transition">من نحن</a>
+        </div>
+        <button class="bg-white text-blue-900 px-6 py-2 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg">دخول</button>
     </nav>
-</header>
 
-<div class="main-grid">
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png"><span>طيران</span></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2983/2983803.png"><span>فنادق</span></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3125/3125867.png"><span>أنشطة</span></div>
-</div>
+    <header class="hero-bg h-screen flex flex-col items-center justify-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-center mb-6 leading-tight">اكتشف وجهتك القادمة</h1>
+        <p class="text-xl mb-10 opacity-90">أفضل عروض السفر والرحلات السياحية حول العالم</p>
 
-<p class="section-title">خدمات إضافية</p>
-<div class="sub-grid">
-    <div class="small-card"><img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png"><span>سيارات</span></div>
-    <div class="small-card"><img src="https://cdn-icons-png.flaticon.com/512/723/723847.png"><span>قطار</span></div>
-    <div class="small-card"><img src="https://cdn-icons-png.flaticon.com/512/3104/3104868.png"><span>كروز</span></div>
-    <div class="small-card"><img src="https://cdn-icons-png.flaticon.com/512/570/570223.png"><span>المزيد</span></div>
-</div>
+        <div class="bg-white p-4 rounded-2xl shadow-2xl w-full max-w-4xl grid grid-cols-1 md:grid-cols-4 gap-4 text-gray-800">
+            <div class="flex flex-col border-l border-gray-200 px-2 text-right">
+                <label class="text-xs font-bold text-blue-600 mb-1">الوجهة</label>
+                <input type="text" placeholder="إلى أين تريد الذهاب؟" class="outline-none text-sm">
+            </div>
+            <div class="flex flex-col border-l border-gray-200 px-2 text-right">
+                <label class="text-xs font-bold text-blue-600 mb-1">التاريخ</label>
+                <input type="date" class="outline-none text-sm bg-transparent">
+            </div>
+            <div class="flex flex-col border-l border-gray-200 px-2 text-right">
+                <label class="text-xs font-bold text-blue-600 mb-1">المسافرون</label>
+                <select class="outline-none text-sm bg-transparent">
+                    <option>2 بالغين</option>
+                    <option>1 بالغ</option>
+                    <option>عائلة</option>
+                </select>
+            </div>
+            <button class="bg-blue-600 text-white font-bold rounded-xl py-3 hover:bg-blue-700 transition">بحث عن رحلات</button>
+        </div>
+    </header>
 
-<div class="ai-box">
-    <h3>🤖 مساعد سحاب الذكي</h3>
-    <form action="https://formspree.io/f/xreovqzr" method="POST">
-        <input type="text" name="destination" placeholder="إلى أين تريد الذهاب؟" required>
-        <input type="text" name="budget" placeholder="الميزانية بالريال" required>
-        <input type="text" name="whatsapp" placeholder="رقم الواتساب" required>
-        <button type="submit" class="btn-send">طلب عرض السعر</button>
-    </form>
-</div>
+    <section class="py-20 px-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-10 text-right">أشهر الوجهات حالياً</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group overflow-hidden rounded-3xl shadow-lg bg-white cursor-pointer transform hover:-translate-y-2 transition">
+                <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=600&q=80" class="h-64 w-full object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-blue-600 font-bold">لندن</span>
+                        <span class="text-gray-500 text-sm">ابتداءً من $450</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">استمتع بجمال الضباب والمعالم التاريخية في قلب بريطانيا.</p>
+                </div>
+            </div>
+            </div>
+    </section>
 
 </body>
 </html>
