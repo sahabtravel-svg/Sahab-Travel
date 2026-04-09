@@ -161,6 +161,39 @@
                 };
             });
         };
+    <script>
+        // تفعيل الأيقونات
+        lucide.createIcons();
+
+        // تفعيل الأزرار الذكية
+        window.onload = function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const destInput = document.getElementById('destInput');
+
+            tabs.forEach(tab => {
+                tab.onclick = function() {
+                    // تغيير الألوان
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-sahab-orange');
+                        t.classList.add('bg-white/30');
+                    });
+                    this.classList.remove('bg-white/30');
+                    this.classList.add('bg-sahab-orange');
+
+                    // تغيير النصوص حسب نوع الحجز
+                    const service = this.innerText.trim();
+                    if (service.includes("طيران")) {
+                        destInput.placeholder = "مطار المغادرة أو الوصول";
+                    } else if (service.includes("فنادق")) {
+                        destInput.placeholder = "اسم الفندق أو المدينة";
+                    } else if (service.includes("سيارات")) {
+                        destInput.placeholder = "موقع استلام السيارة";
+                    } else {
+                        destInput.placeholder = "الوجهة أو الموقع";
+                    }
+                };
+            });
+        };
     </script>
 </body>
 </html>
