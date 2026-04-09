@@ -57,16 +57,17 @@
                     <div class="flex items-center gap-2">
                         <i data-lucide="calendar" size="18" class="text-gray-400"></i>
                         <input type="date" class="outline-none text-sm font-bold w-full bg-            <div class="bg-white p-4 md:p-6 rounded-2xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-800">
+                         <div class="bg-white p-4 md:p-6 rounded-2xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-800 border border-gray-100">
                 <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0 text-right">
                     <label class="text-[10px] font-bold text-sahab-blue block mb-1">الموقع / المطار</label>
                     <div class="flex items-center gap-2">
                         <i data-lucide="map-pin" size="18" class="text-gray-400"></i>
-                        <input type="text" id="destInput" placeholder="المدينة أو المطار" class="outline-none text-sm font-bold w-full">
+                        <input type="text" id="destInput" placeholder="المدينة أو المطار" class="outline-none text-sm font-bold w-full bg-transparent">
                     </div>
                 </div>
 
                 <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0 text-right">
-                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">التاريخ</label>
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">تاريخ الرحلة</label>
                     <div class="flex items-center gap-2">
                         <i data-lucide="calendar" size="18" class="text-gray-400"></i>
                         <input type="date" class="outline-none text-sm font-bold w-full bg-transparent">
@@ -74,15 +75,22 @@
                 </div>
 
                 <div class="border-b md:border-b-0 md:border-l border-gray-100 pb-2 md:pb-0 text-right">
-                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">عدد المسافرين</label>
+                    <label class="text-[10px] font-bold text-sahab-blue block mb-1">المسافرون</label>
                     <div class="flex items-center gap-2">
                         <i data-lucide="users" size="18" class="text-gray-400"></i>
-                        <select class="outline-none text-sm font-bold w-full bg-transparent">
-                            <option>1 بالغ</option>
-                            <option>2 بالغين</option>
-                            <option>عائلة (أطفال)</option>
+                        <select class="outline-none text-sm font-bold w-full bg-transparent cursor-pointer">
+                            <option>1 مسافر</option>
+                            <option>2 مسافرين</option>
+                            <option>عائلة (3+ أشخاص)</option>
                         </select>
                     </div>
+                </div>
+
+                <button class="bg-sahab-orange text-white font-bold rounded-xl py-4 shadow-lg hover:bg-orange-600 transition flex items-center justify-center gap-2">
+                    <i data-lucide="search" size="20"></i> بحث الآن
+                </button>
+            </div>
+
                 </div>
 
                 <button class="bg-sahab-orange text-white font-bold rounded-xl py-4 shadow-lg hover:bg-orange-600 transition flex items-center justify-center gap-2">
