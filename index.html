@@ -97,22 +97,28 @@
     </footer>
 
     <script>
-        lucide.createIcons();
-        const tabs = document.querySelectorAll('.tab-btn');
-        const destInput = document.getElementById('destInput');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                tabs.forEach(t => { t.classList.remove('bg-sahab-orange'); t.classList.add('bg-white/30'); });
-                this.classList.remove('bg-white/30');
-                this.classList.add('bg-sahab-orange');
-                
-                const type = this.innerText.trim();
-                if(type === "فنادق") destInput.placeholder = "اسم الفندق أو المدينة";
-                else if(type === "سيارات") destInput.placeholder = "مكان استلام السيارة";
-                else destInput.placeholder = "إلى أين؟";
-            });
-        });
-    </script>
-</body>
-</html>
+            <a href="paris.html" class="group bg-white rounded-3xl shadow-md overflow-hidden block border border-gray-100">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 text-right">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 font-black">باريس - فرنسا</h3>
+                    <div class="flex justify-between items-center text-sahab-blue">
+                        <span class="text-2xl font-black">$550</span>
+                        <span class="text-gray-400 text-sm flex items-center gap-1"><i data-lucide="clock" size="14"></i> 7 أيام</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="london.html" class="group bg-white rounded-3xl shadow-md overflow-hidden block border border-gray-100">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 text-right">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 font-black">لندن - بريطانيا</h3>
+                    <div class="flex justify-between items-center text-sahab-blue">
+                        <span class="text-2xl font-black">$480</span>
+                        <span class="text-gray-400 text-sm flex items-center gap-1"><i data-lucide="clock" size="14"></i> 6 أيام</span>
+                    </div>
+                </div>
+            </a>
