@@ -19,6 +19,19 @@
 <body class="bg-gray-50">
     <nav class="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md px-6 py-4 flex justify-between items-center text-white">
         <div class="text-2xl font-black">سحاب ترافيل</div>
+<div id="sidebar" class="fixed top-0 -right-full w-72 h-full bg-white z-[100] shadow-2xl transition-all duration-300 p-6 flex flex-col">
+    <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
+        <span class="text-xl font-black text-blue-900">سحاب ترافيل</span>
+        <button id="closeBtn" class="text-gray-400 hover:text-red-500"><i data-lucide="x"></i></button>
+    </div>
+    <nav class="flex flex-col gap-2">
+        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="train"></i> قطارات</a>
+        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="ship"></i> رحلات كروز</a>
+        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="contactless"></i> شرائح eSIM</a>
+        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="ticket"></i> معالم سياحية</a>
+    </nav>
+</div>
+<div id="overlay" class="fixed inset-0 bg-black/50 z-[90] hidden"></div>
         
         <button id="menuBtn" class="p-2 hover:bg-white/20 rounded-lg transition">
             <i data-lucide="menu" size="28"></i>
