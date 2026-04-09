@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عروض سحاب ترافل</title>
+    <style>body { font-family: 'Tajawal', sans-serif; text-align: center; padding: 50px; }</style>
+</head>
+<body>
+    <h1>قريباً.. أفضل عروض السفر ✈️</h1>
+    <a href="index.html">العودة للرئيسية</a>
+</body>
+</html>
