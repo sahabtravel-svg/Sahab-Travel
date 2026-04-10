@@ -122,42 +122,76 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-black text-gray-800 mb-1 text-lg leading-tight">دبي، الإمارات العربية المتحدة</h3>
-                    <div class="flex justify-between items-center mt-3">
-                        <p class="text-blue-600 font-black text-xl">$299</p>
-                        <span class="text-gray-300 text-[10px] font-bold">للشخص الواحد</span>
-                    </div>
-                </div>
-            </a>
+        lucide.createIcons();
 
-            <a href="details.html?id=london" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0 transition-transform active:scale-95">
-                <div class="relative h-44">
-                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500" class="w-full h-full object-cover">
-                </div>
-                <div class="p-5">
-                    <h3 class="font-black text-gray-800 mb-1 text-lg leading-tight">لندن، المملكة المتحدة</h3>
-                    <div class="flex justify-between items-center mt-3">
-                        <p class="text-blue-600 font-black text-xl">$550</p>
-                        <span class="text-gray-300 text-[10px] font-bold">للشخص الواحد</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
+        // 1. قاعدة البيانات للمطارات والمدن
+        const dataStore = {
+            airports: ["مطار الملك خالد (RUH)", "مطار دبي الدولي (DXB)", "مطار هيثرو (LHR)", "مطار القاهرة (CAI)"],
+            cities: ["دبي، الإمارات", "لندن، بريطانيا", "باريس، فرنسا", "الرياض، السعودية"],
+            carBranches: ["مطار دبي - صالة 3", "وسط المدينة - الرياض"]
+        };
 
-    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 flex justify-around p-3 z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
-        <button class="flex flex-col items-center gap-1 text-blue-900">
-            <i data-lucide="home" size="20"></i>
-            <span class="text-[10px] font-bold">الرئيسية</span>
-        </button>
-        <button class="flex flex-col items-center gap-1 text-gray-400">
-            <i data-lucide="search" size="20"></i>
-            <span class="text-[10px] font-bold">بحث</span>
-        </button>
-        <button class="flex flex-col items-center gap-1 text-gray-400">
-            <i data-lucide="heart" size="20"></i>
-            <span class="text-[10px] font-bold">المفضلة</span>
-        </button>
-        <button class="flex flex-col items-center gap-1 text-gray-400">
+        let currentService = 'flights';
+
+        // 2. وظيفة التبديل (طيران/فنادق/سيارات)
+        function switchTab(element, type) {
+            currentService = type;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active', 'text-blue-900');
+                btn.classList.add('bg-white/10', 'text-white');
+            });
+            element.classList.add('tab-active');
+            element.classList.remove('bg-white/10', 'text-white');
+
+            const fromContainer = document.getElementById('from-container');
+            const toLabel = document.getElementById('location-label');
+            const toInput = document.getElementById('toInput');
+
+            if (type === 'flights') {
+                fromContainer.style.display = 'flex';
+                toLabel.innerText = 'إلى (المطار)';
+                toInput.placeholder = 'مطار الوصول';
+            } else {
+                fromContainer.style.display = 'none';
+                toLabel.innerText = type === 'hotels' ? 'الوجهة أو الفندق' : 'مكان الاستلام';
+                toInput.placeholder = type === 'hotels' ? 'أين تريد الإقامة؟' : 'المطار أو الفرع';
+            }
+            lucide.createIcons();
+        }
+
+        // 3. نظام القائمة المنسدلة (Dropdown)
+        const inputs = ['fromInput', 'toInput'];
+        inputs.forEach(id => {
+            const input = document.getElementById(id);
+            const dropdown = document.createElement('div');
+            dropdown.className = "absolute w-full bg-white shadow-2xl rounded-2xl mt-2 hidden z-[100] border border-gray-100 max-h-60 overflow-y-auto";
+            input.parentNode.appendChild(dropdown);
+
+            input.addEventListener('focus', () => {
+                const list = (currentService === 'flights') ? dataStore.airports : 
+                             (currentService === 'hotels' ? dataStore.cities : dataStore.carBranches);
+                
+                dropdown.innerHTML = '';
+                list.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = "p-4 hover:bg-blue-50 cursor-pointer font-bold text-gray-700 border-b border-gray-50 text-right";
+                    div.innerText = item;
+                    div.onclick = () => { input.value = item; dropdown.classList.add('hidden'); };
+                    dropdown.appendChild(div);
+                });
+                dropdown.classList.remove('hidden');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.add('hidden');
+            });
+        });
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('translate-x-full');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+
             <i data-lucide="user" size="20"></i>
             <span class="text-[10px] font-bold">حسابي</span>
         </button>
