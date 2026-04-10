@@ -3,118 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سحاب ترافيل | وجهتك القادمة</title>
+    <title>سحاب ترافيل | المسافرون العرب</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; }
+        body { font-family: 'Cairo', sans-serif; overflow-x: hidden; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .tab-active { background: white !important; color: #1e3a8a !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .tab-active { background: white !important; color: #1e3a8a !important; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: scale(1.05); }
+        .sidebar { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
-<body class="bg-gray-50">
-
-    <nav class="bg-blue-900 p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-white font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
-            <button class="text-white"><i data-lucide="menu"></i></button>
+<body class="bg-gray-50 pb-20"> <div id="sidebar" class="sidebar fixed top-0 right-0 w-72 h-full bg-white z-[100] shadow-2xl transform translate-x-full">
+        <div class="p-6 bg-blue-900 text-white">
+            <div class="flex justify-between items-center mb-4">
+                <span class="font-black text-xl">سحاب ترافيل</span>
+                <button onclick="toggleSidebar()"><i data-lucide="x"></i></button>
+            </div>
+            <p class="text-xs text-blue-200 text-right">مرحباً بك في عالم السفر</p>
         </div>
+        <div class="p-4 space-y-4">
+            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="user" size="20"></i> تسجيل الدخول</a>
+            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="briefcase" size="20"></i> حجزواتي</a>
+            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="help-circle" size="20"></i> مركز المساعدة</a>
+            <hr>
+            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="settings" size="20"></i> الإعدادات</a>
+        </div>
+    </div>
+    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-[90] hidden"></div>
+
+    <nav class="bg-blue-900 p-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <button onclick="toggleSidebar()" class="text-white"><i data-lucide="menu"></i></button>
+            <div class="text-white font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
+            <div class="w-8"></div> </div>
     </nav>
 
-    <div class="bg-blue-900 pt-10 pb-24 px-4">
+    <div class="bg-blue-900 pt-8 pb-24 px-4 rounded-b-[40px]">
         <div class="container mx-auto text-center mb-8">
-            <h1 class="text-white text-2xl font-black mb-2">أهلاً بك، أين وجهتك القادمة؟</h1>
+            <h1 class="text-white text-2xl font-black mb-1">ابدأ رحلتك الآن</h1>
+            <p class="text-blue-200 text-xs">احصل على أفضل أسعار الطيران والفنادق</p>
         </div>
 
         <div class="container mx-auto grid grid-cols-3 gap-3 max-w-md">
             <button onclick="switchTab(this, 'flights')" class="tab-btn tab-active rounded-2xl p-4 flex flex-col items-center transition-all">
-                <i data-lucide="plane" class="mb-2"></i>
+                <i data-lucide="plane" class="mb-1"></i>
                 <span class="text-xs font-bold">طيران</span>
             </button>
             <button onclick="switchTab(this, 'hotels')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
-                <i data-lucide="hotel" class="mb-2"></i>
+                <i data-lucide="hotel" class="mb-1"></i>
                 <span class="text-xs font-bold">فنادق</span>
             </button>
             <button onclick="switchTab(this, 'cars')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
-                <i data-lucide="car" class="mb-2"></i>
+                <i data-lucide="car" class="mb-1"></i>
                 <span class="text-xs font-bold">سيارات</span>
             </button>
         </div>
     </div>
 
     <div class="container mx-auto px-4 -mt-16">
-        <div class="bg-white rounded-3xl shadow-xl p-6 border border-gray-100 max-w-xl mx-auto">
-            <div class="space-y-5">
-                <div class="flex flex-col border-b border-gray-100 pb-2">
-                    <label id="location-label" class="text-xs font-bold text-blue-600 mb-1 uppercase">المغادرة من</label>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="map-pin" class="text-gray-300" size="18"></i>
-                        <input type="text" id="mainInput" placeholder="من أين ستغادر؟" class="w-full outline-none font-bold text-gray-800">
+        <div class="bg-white rounded-[32px] shadow-2xl p-6 border border-gray-100 max-w-xl mx-auto">
+            <div class="space-y-6">
+                <div class="flex flex-col border-b border-gray-100 pb-3">
+                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 tracking-widest uppercase">الوجهة أو الفندق</label>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="search" class="text-gray-300" size="20"></i>
+                        <input type="text" id="mainInput" placeholder="إلى أين تريد الذهاب؟" class="w-full outline-none font-bold text-gray-800 text-lg">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="flex flex-col border-b border-gray-100 pb-2">
-                        <label class="text-xs font-bold text-blue-600 mb-1 uppercase">التاريخ</label>
-                        <input type="date" class="outline-none font-bold text-gray-700 bg-transparent text-sm">
+                    <div class="flex flex-col border-b border-gray-100 pb-3">
+                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase">التاريخ</label>
+                        <input type="date" class="outline-none font-bold text-gray-700 bg-transparent">
                     </div>
-                    <div id="extra-field" class="flex flex-col border-b border-gray-100 pb-2">
-                        <label class="text-xs font-bold text-blue-600 mb-1 uppercase">المسافرون</label>
-                        <select class="outline-none font-bold text-gray-700 bg-transparent text-sm">
-                            <option>1 مسافر</option>
-                            <option>2 مسافر</option>
+                    <div id="extra-field" class="flex flex-col border-b border-gray-100 pb-3">
+                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase">المسافرون</label>
+                        <select class="outline-none font-bold text-gray-700 bg-transparent">
+                            <option>1 مسافر، سياحية</option>
+                            <option>2 مسافر، سياحية</option>
                         </select>
                     </div>
                 </div>
 
-                <button class="w-full bg-orange-500 text-white py-4 rounded-2xl font-black text-lg shadow-lg shadow-orange-200 active:scale-95 transition-all">
-                    ابحث الآن
+                <button class="w-full bg-orange-500 text-white py-4 rounded-2xl font-black text-lg shadow-xl shadow-orange-200 active:scale-95 transition-all">
+                    ابحث عن رحلات
                 </button>
             </div>
         </div>
     </div>
 
     <section class="py-12">
-        <div class="container mx-auto px-4 flex justify-between items-center mb-6">
-            <h2 class="text-xl font-black text-gray-800 tracking-tight">أفضل العروض الحالية</h2>
-            <span class="text-blue-600 text-sm font-bold">عرض الكل</span>
+        <div class="container mx-auto px-4 flex justify-between items-end mb-6">
+            <div>
+                <h2 class="text-xl font-black text-gray-800 tracking-tight">عروض حصرية لك</h2>
+                <p class="text-xs text-gray-400">أسعار خاصة لفترة محدودة</p>
+            </div>
+            <span class="text-blue-600 text-sm font-bold border-b-2 border-blue-100">عرض الكل</span>
         </div>
 
-        <div class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar">
-            <a href="details.html?id=dubai" class="min-w-[280px] bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden shrink-0">
-                <div class="relative h-40">
+        <div class="flex overflow-x-auto gap-5 px-4 pb-6 no-scrollbar">
+            <a href="details.html?id=dubai" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0 transition-transform active:scale-95">
+                <div class="relative h-44">
                     <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" class="w-full h-full object-cover">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase">عرض محدود</div>
+                    <div class="absolute top-4 right-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-lg">الأكثر طلباً</div>
                 </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-gray-800 mb-1 text-lg">دبي، الإمارات</h3>
-                    <p class="text-blue-600 font-black">$299 <span class="text-gray-400 text-xs font-normal">/ للشخص</span></p>
+                <div class="p-5">
+                    <h3 class="font-black text-gray-800 mb-1 text-lg leading-tight">دبي، الإمارات العربية المتحدة</h3>
+                    <div class="flex justify-between items-center mt-3">
+                        <p class="text-blue-600 font-black text-xl">$299</p>
+                        <span class="text-gray-300 text-[10px] font-bold">للشخص الواحد</span>
+                    </div>
                 </div>
             </a>
 
-            <a href="details.html?id=london" class="min-w-[280px] bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden shrink-0">
-                <div class="relative h-40">
+            <a href="details.html?id=london" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0 transition-transform active:scale-95">
+                <div class="relative h-44">
                     <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500" class="w-full h-full object-cover">
                 </div>
-                <div class="p-4">
-                    <h3 class="font-bold text-gray-800 mb-1 text-lg">لندن، بريطانيا</h3>
-                    <p class="text-blue-600 font-black">$550 <span class="text-gray-400 text-xs font-normal">/ للشخص</span></p>
+                <div class="p-5">
+                    <h3 class="font-black text-gray-800 mb-1 text-lg leading-tight">لندن، المملكة المتحدة</h3>
+                    <div class="flex justify-between items-center mt-3">
+                        <p class="text-blue-600 font-black text-xl">$550</p>
+                        <span class="text-gray-300 text-[10px] font-bold">للشخص الواحد</span>
+                    </div>
                 </div>
             </a>
         </div>
     </section>
 
-    <footer class="bg-gray-100 py-10 text-center text-gray-400 text-sm font-bold">
-        <p>© 2026 سحاب ترافيل - جميع الحقوق محفوظة</p>
-    </footer>
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 flex justify-around p-3 z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
+        <button class="flex flex-col items-center gap-1 text-blue-900">
+            <i data-lucide="home" size="20"></i>
+            <span class="text-[10px] font-bold">الرئيسية</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-gray-400">
+            <i data-lucide="search" size="20"></i>
+            <span class="text-[10px] font-bold">بحث</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-gray-400">
+            <i data-lucide="heart" size="20"></i>
+            <span class="text-[10px] font-bold">المفضلة</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-gray-400">
+            <i data-lucide="user" size="20"></i>
+            <span class="text-[10px] font-bold">حسابي</span>
+        </button>
+    </div>
 
     <script>
         lucide.createIcons();
 
+        // وظيفة فتح وإغلاق القائمة الجانبية
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        // وظيفة التبديل بين طيران/فنادق/سيارات
         function switchTab(element, type) {
-            // تنسيق الأزرار
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('tab-active', 'text-blue-900');
                 btn.classList.add('bg-white/10', 'text-white');
@@ -122,7 +172,6 @@
             element.classList.add('tab-active');
             element.classList.remove('bg-white/10', 'text-white');
 
-            // تغيير النصوص
             const label = document.getElementById('location-label');
             const input = document.getElementById('mainInput');
             const extraField = document.getElementById('extra-field');
