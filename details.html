@@ -3,55 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الوجهة - سحاب ترافيل</title>
+    <title>تفاصيل الرحلة | سحاب ترافيل</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Cairo', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 pb-24">
 
-    <nav class="bg-white shadow-sm p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-blue-600 font-bold text-xl">سحاب ترافيل</a>
-            <a href="index.html" class="text-gray-600 hover:text-blue-600">العودة للرئيسية ←</a>
-        </div>
-    </nav>
+    <div class="relative h-[40vh] w-full">
+        <img id="trip-image" src="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        
+        <a href="index.html" class="absolute top-6 right-6 bg-white/20 backdrop-blur-md p-2 rounded-full text-white">
+            <i data-lucide="arrow-right"></i>
+        </a>
+    </div>
 
-    <main class="container mx-auto py-8 px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 rounded-2xl shadow-lg">
-            <div class="rounded-xl overflow-hidden">
-                <img id="trip-image" src="" class="w-full h-96 object-cover">
+    <div class="container mx-auto px-4 -mt-10 relative z-10">
+        <div class="bg-white rounded-[32px] shadow-xl p-6 border border-gray-100">
+            <div class="flex justify-between items-start mb-4">
+                <h1 id="trip-title" class="text-2xl font-black text-gray-800">جاري التحميل...</h1>
+                <div class="bg-blue-50 text-blue-600 px-3 py-1 rounded-lg text-xs font-bold">رحلة دولية</div>
             </div>
 
-            <div class="flex flex-col justify-between">
-                <div>
-                    <h1 id="trip-title" class="text-3xl font-bold text-gray-800 mb-4">جاري التحميل...</h1>
-                    <p id="trip-desc" class="text-gray-600 mb-6"></p>
-                    <div class="text-2xl font-bold text-blue-600 mb-4">السعر: <span id="trip-price"></span></div>
+            <div class="flex items-center gap-2 text-gray-400 text-sm mb-6">
+                <i data-lucide="map-pin" size="16"></i>
+                <span id="trip-location">دبي، الإمارات العربية المتحدة</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="bg-gray-50 p-4 rounded-2xl text-center border border-gray-100">
+                    <i data-lucide="plane" class="mx-auto mb-2 text-blue-600"></i>
+                    <span class="text-[10px] block text-gray-400">طيران</span>
+                    <span class="text-xs font-bold">مشمول</span>
                 </div>
-                <button class="bg-blue-600 text-white py-3 rounded-xl font-bold">تأكيد الحجز</button>
+                <div class="bg-gray-50 p-4 rounded-2xl text-center border border-gray-100">
+                    <i data-lucide="hotel" class="mx-auto mb-2 text-orange-500"></i>
+                    <span class="text-[10px] block text-gray-400">فندق</span>
+                    <span class="text-xs font-bold">5 نجوم</span>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-2xl text-center border border-gray-100">
+                    <i data-lucide="calendar" class="mx-auto mb-2 text-green-500"></i>
+                    <span class="text-[10px] block text-gray-400">المدة</span>
+                    <span class="text-xs font-bold">5 أيام</span>
+                </div>
+            </div>
+
+            <h3 class="font-black text-gray-800 mb-3">وصف الرحلة</h3>
+            <p id="trip-desc" class="text-gray-600 text-sm leading-relaxed mb-8"></p>
+
+            <div class="bg-blue-900 rounded-2xl p-6 text-white">
+                <h4 class="font-bold mb-4">المميزات:</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle" size="16" class="text-green-400"></i> إفطار مجاني يومي</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle" size="16" class="text-green-400"></i> النقل من وإلى المطار</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle" size="16" class="text-green-400"></i> جولة سياحية مجانية</li>
+                </ul>
             </div>
         </div>
-    </main>
+    </div>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 flex justify-between items-center z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+        <div class="flex flex-col">
+            <span class="text-xs text-gray-400">السعر الكلي</span>
+            <span id="trip-price" class="text-2xl font-black text-blue-900"></span>
+        </div>
+        <button class="bg-orange-500 text-white px-10 py-4 rounded-2xl font-black text-lg shadow-lg shadow-orange-200">
+            احجز الآن
+        </button>
+    </div>
 
     <script>
-        // قاعدة بيانات بسيطة للرحلات
+        lucide.createIcons();
+
         const trips = {
             'dubai': {
-                title: 'دبي - الإمارات',
-                desc: 'استمتع بإقامة فاخرة في مدينة المستقبل، شاملة زيارة برج خليفة والنافورة الراقصة.',
+                title: 'دبي - تجربة الرفاهية',
+                desc: 'اكتشف سحر دبي مع هذه الرحلة المميزة التي تشمل إقامة في أفخم فنادق وسط المدينة، تذاكر ذهاب وإياب، وجولات سياحية لأهم المعالم مثل برج خليفة ونافورة دبي.',
                 price: '$299',
-                image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800'
+                image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1000'
             },
             'london': {
-                title: 'لندن - بريطانيا',
-                desc: 'جولة تاريخية في معالم لندن العريقة، ساعة بيغ بين ونهر التايمز الساحر.',
+                title: 'لندن - عراقة التاريخ',
+                desc: 'استمتع بأجواء لندن الساحرة، من ساعة بيغ بين إلى نهر التايمز. العرض يشمل الطيران، الفندق، وتذاكر دخول لأهم المتاحف.',
                 price: '$550',
-                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800'
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1000'
             }
         };
 
-        // دالة قراءة اسم الرحلة من الرابط (URL)
         const urlParams = new URLSearchParams(window.location.search);
         const tripId = urlParams.get('id');
 
@@ -61,23 +103,7 @@
             document.getElementById('trip-desc').innerText = trip.desc;
             document.getElementById('trip-price').innerText = trip.price;
             document.getElementById('trip-image').src = trip.image;
-        } else {
-            document.getElementById('trip-title').innerText = 'الرحلة غير موجودة';
         }
-// هذا الكود هو "الموظف" اللي يستلم الطلب من الرابط
-const urlParams = new URLSearchParams(window.location.search);
-const tripId = urlParams.get('id'); // هنا بياخد كلمة dubai
-
-// هنا بيدور في القائمة اللي كتبناها فوق
-if (tripId && trips[tripId]) {
-    const trip = trips[tripId];
-    
-    // هنا بيغير الكلام والصور في الصفحة
-    document.getElementById('trip-title').innerText = trip.title;
-    document.getElementById('trip-desc').innerText = trip.desc;
-    document.getElementById('trip-price').innerText = trip.price;
-    document.getElementById('trip-image').src = trip.image;
-}
     </script>
 </body>
 </html>
