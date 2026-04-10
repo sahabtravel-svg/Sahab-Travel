@@ -3,200 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سحاب ترافيل - بوابتك للعالم</title>
+    <title>سحاب ترافيل | وجهتك القادمة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; overflow-x: hidden; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-position: center;
-        }
-        .tab-active { background-color: #f7941d !important; color: white !important; }
+        body { font-family: 'Cairo', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .tab-active { background: white !important; color: #1e3a8a !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body class="bg-gray-50">
-    <nav class="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md px-6 py-4 flex justify-between items-center text-white">
-        <div class="text-2xl font-black">سحاب ترافيل</div>
-<div id="sidebar" class="fixed top-0 -right-full w-72 h-full bg-white z-[100] shadow-2xl transition-all duration-300 p-6 flex flex-col">
-    <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
-        <span class="text-xl font-black text-blue-900">سحاب ترافيل</span>
-        <button id="closeBtn" class="text-gray-400 hover:text-red-500"><i data-lucide="x"></i></button>
-    </div>
-    <nav class="flex flex-col gap-2">
-        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="train"></i> قطارات</a>
-        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="ship"></i> رحلات كروز</a>
-        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="contactless"></i> شرائح eSIM</a>
-        <a href="#" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 hover:bg-blue-50 font-bold"><i data-lucide="ticket"></i> معالم سياحية</a>
-    </nav>
-</div>
-<div id="overlay" class="fixed inset-0 bg-black/50 z-[90] hidden"></div>
-        
-        <button id="menuBtn" class="p-2 hover:bg-white/20 rounded-lg transition">
-            <i data-lucide="menu" size="28"></i>
-        </button>
-    </nav>
 
-    <div id="sidebar" class="fixed top-0 -right-full w-72 h-full bg-white z-[60] shadow-2xl transition-all duration-300 p-6 text-gray-800">
-        <div class="flex justify-between items-center mb-10">
-            <span class="text-xl font-black text-blue-900">القائمة</span>
-            <button id="closeBtn"><i data-lucide="x" class="text-gray-500"></i></button>
+    <nav class="bg-blue-900 p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
+            <button class="text-white"><i data-lucide="menu"></i></button>
         </div>
-        
-        <nav class="flex flex-col gap-6 text-lg font-bold">
-            <a href="index.html" class="flex items-center gap-3 text-orange-500"><i data-lucide="home"></i> الرئيسية</a>
-            <a href="#" class="flex items-center gap-3 hover:text-orange-500"><i data-lucide="plane"></i> حجز طيران</a>
-            <a href="#" class="flex items-center gap-3 hover:text-orange-500"><i data-lucide="hotel"></i> حجز فنادق</a>
-            <a href="#" class="flex items-center gap-3 hover:text-orange-500"><i data-lucide="car"></i> تأجير سيارات</a>
-            <a href="#" class="flex items-center gap-3 hover:text-orange-500"><i data-lucide="phone"></i> اتصل بنا</a>
-        </nav>
+    </nav>
+
+    <div class="bg-blue-900 pt-10 pb-24 px-4">
+        <div class="container mx-auto text-center mb-8">
+            <h1 class="text-white text-2xl font-black mb-2">أهلاً بك، أين وجهتك القادمة؟</h1>
+        </div>
+
+        <div class="container mx-auto grid grid-cols-3 gap-3 max-w-md">
+            <button onclick="switchTab(this, 'flights')" class="tab-btn tab-active rounded-2xl p-4 flex flex-col items-center transition-all">
+                <i data-lucide="plane" class="mb-2"></i>
+                <span class="text-xs font-bold">طيران</span>
+            </button>
+            <button onclick="switchTab(this, 'hotels')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
+                <i data-lucide="hotel" class="mb-2"></i>
+                <span class="text-xs font-bold">فنادق</span>
+            </button>
+            <button onclick="switchTab(this, 'cars')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
+                <i data-lucide="car" class="mb-2"></i>
+                <span class="text-xs font-bold">سيارات</span>
+            </button>
+        </div>
     </div>
 
-    <div id="overlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
-
-    <header class="hero-bg min-h-[80vh] flex flex-col items-center justify-center text-white px-4 relative">
-        <h1 class="text-4xl md:text-6xl font-black text-center mb-4">مستشارك الأول للسفر</h1>
-        <p class="text-lg md:text-xl mb-10 opacity-90 text-center">احجز طيرانك، فندقك، وسيارتك في مكان واحد</p>
-
-        <div class="w-full max-w-5xl z-10">
-            <div class="flex flex-wrap justify-center gap-2 mb-0">
-                <button onclick="switchTab(this, 'طيران')" class="tab-btn tab-active bg-white/20 backdrop-blur-md px-6 py-3 rounded-t-2xl font-bold flex items-center gap-2 transition-all">
-                    <i data-lucide="plane"></i> طيران
-                </button>
-                <button onclick="switchTab(this, 'فنادق')" class="tab-btn bg-white/10 backdrop-blur-md px-6 py-3 rounded-t-2xl font-bold flex items-center gap-2 transition-all">
-                    <i data-lucide="hotel"></i> فنادق
-                </button>
-                <button onclick="switchTab(this, 'سيارات')" class="tab-btn bg-white/10 backdrop-blur-md px-6 py-3 rounded-t-2xl font-bold flex items-center gap-2 transition-all">
-                    <i data-lucide="car"></i> سيارات
-                </button>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl md:rounded-tr-none shadow-2xl grid grid-cols-1 md:grid-cols-4 gap-4 text-gray-800">
-                <div class="flex flex-col border-l border-gray-100 pl-4">
-                    <label class="text-xs font-bold text-orange-500 mb-1">الموقع / المطار</label>
+    <div class="container mx-auto px-4 -mt-16">
+        <div class="bg-white rounded-3xl shadow-xl p-6 border border-gray-100 max-w-xl mx-auto">
+            <div class="space-y-5">
+                <div class="flex flex-col border-b border-gray-100 pb-2">
+                    <label id="location-label" class="text-xs font-bold text-blue-600 mb-1 uppercase">المغادرة من</label>
                     <div class="flex items-center gap-2">
-                        <i data-lucide="map-pin" class="text-gray-400" size="18"></i>
-                        <input type="text" id="mainInput" placeholder="من أين؟" class="w-full outline-none font-bold">
+                        <i data-lucide="map-pin" class="text-gray-300" size="18"></i>
+                        <input type="text" id="mainInput" placeholder="من أين ستغادر؟" class="w-full outline-none font-bold text-gray-800">
                     </div>
                 </div>
-                <div class="flex flex-col border-l border-gray-100 pl-4">
-                    <label class="text-xs font-bold text-orange-500 mb-1">التاريخ</label>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="calendar" class="text-gray-400" size="18"></i>
-                        <input type="date" class="w-full outline-none font-bold bg-transparent">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col border-b border-gray-100 pb-2">
+                        <label class="text-xs font-bold text-blue-600 mb-1 uppercase">التاريخ</label>
+                        <input type="date" class="outline-none font-bold text-gray-700 bg-transparent text-sm">
                     </div>
-                </div>
-                <div class="flex flex-col border-l border-gray-100 pl-4">
-                    <label class="text-xs font-bold text-orange-500 mb-1">المسافرون</label>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="users" class="text-gray-400" size="18"></i>
-                        <select class="w-full outline-none font-bold bg-transparent">
-                            <option>1 بالغ</option>
-                            <option>2 بالغين</option>
-                            <option>عائلة</option>
+                    <div id="extra-field" class="flex flex-col border-b border-gray-100 pb-2">
+                        <label class="text-xs font-bold text-blue-600 mb-1 uppercase">المسافرون</label>
+                        <select class="outline-none font-bold text-gray-700 bg-transparent text-sm">
+                            <option>1 مسافر</option>
+                            <option>2 مسافر</option>
                         </select>
                     </div>
                 </div>
-                <button class="bg-[#f7941d] hover:bg-orange-600 text-white font-black py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                    <i data-lucide="search"></i> بحث الآن
+
+                <button class="w-full bg-orange-500 text-white py-4 rounded-2xl font-black text-lg shadow-lg shadow-orange-200 active:scale-95 transition-all">
+                    ابحث الآن
                 </button>
             </div>
         </div>
-    </header>
+    </div>
 
-    <section class="py-16 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-black mb-8 text-gray-800">أفضل العروض الحالية</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<a href="details.html?id=dubai">
+    <section class="py-12">
+        <div class="container mx-auto px-4 flex justify-between items-center mb-6">
+            <h2 class="text-xl font-black text-gray-800 tracking-tight">أفضل العروض الحالية</h2>
+            <span class="text-blue-600 text-sm font-bold">عرض الكل</span>
+        </div>
 
-
-                <div class="h-60 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute top-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">أكثر طلباً</div>
+        <div class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar">
+            <a href="details.html?id=dubai" class="min-w-[280px] bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden shrink-0">
+                <div class="relative h-40">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" class="w-full h-full object-cover">
+                    <div class="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase">عرض محدود</div>
                 </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">دبي - الإمارات</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-black text-blue-900">$299</span>
-                        <span class="text-gray-400 text-sm">5 أيام</span>
-                    </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-gray-800 mb-1 text-lg">دبي، الإمارات</h3>
+                    <p class="text-blue-600 font-black">$299 <span class="text-gray-400 text-xs font-normal">/ للشخص</span></p>
+                </div>
+            </a>
+
+            <a href="details.html?id=london" class="min-w-[280px] bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden shrink-0">
+                <div class="relative h-40">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-gray-800 mb-1 text-lg">لندن، بريطانيا</h3>
+                    <p class="text-blue-600 font-black">$550 <span class="text-gray-400 text-xs font-normal">/ للشخص</span></p>
                 </div>
             </a>
         </div>
     </section>
 
-    <footer class="bg-blue-900 text-white py-8 text-center">
-        <p class="font-bold">© 2026 سحاب ترافيل - جميع الحقوق محفوظة</p>
+    <footer class="bg-gray-100 py-10 text-center text-gray-400 text-sm font-bold">
+        <p>© 2026 سحاب ترافيل - جميع الحقوق محفوظة</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
         function switchTab(element, type) {
-            // مسح التنسيق من كل الأزرار
+            // تنسيق الأزرار
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('tab-active');
-                btn.classList.add('bg-white/10');
+                btn.classList.remove('tab-active', 'text-blue-900');
+                btn.classList.add('bg-white/10', 'text-white');
             });
-            // تفعيل الزر المختار
             element.classList.add('tab-active');
-            element.classList.remove('bg-white/10');
+            element.classList.remove('bg-white/10', 'text-white');
 
-            // تغيير نص الإدخال
+            // تغيير النصوص
+            const label = document.getElementById('location-label');
             const input = document.getElementById('mainInput');
-            if(type === 'فنادق') input.placeholder = "اسم الفندق أو المدينة";
-            else if(type === 'سيارات') input.placeholder = "مكان استلام السيارة";
-            else input.placeholder = "مطار المغادرة أو الوصول";
+            const extraField = document.getElementById('extra-field');
+
+            if (type === 'flights') {
+                label.innerText = 'المغادرة من';
+                input.placeholder = 'من أين ستغادر؟';
+                extraField.style.display = 'flex';
+            } else if (type === 'hotels') {
+                label.innerText = 'الإقامة في';
+                input.placeholder = 'أين تريد الإقامة؟';
+                extraField.style.display = 'flex';
+            } else if (type === 'cars') {
+                label.innerText = 'مكان الاستلام';
+                input.placeholder = 'المطار أو فرع التأجير';
+                extraField.style.display = 'none';
+            }
         }
-    </        // أوامر القائمة الجانبية
-        const menuBtn = document.getElementById('menuBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        menuBtn.onclick = () => {
-            sidebar.classList.remove('-right-full');
-            sidebar.classList.add('right-0');
-            overlay.classList.remove('hidden');
-        };
-
-        closeBtn.onclick = overlay.onclick = () => {
-            sidebar.classList.remove('right-0');
-            sidebar.classList.add('-right-full');
-            overlay.classList.add('hidden');
-        };
->
-function switchTab(event, type) {
-    // 1. تحديث شكل الأزرار
-    const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('bg-blue-600', 'text-white', 'active');
-        btn.classList.add('bg-white/10'); // التنسيق الأصلي لأزرارك
-    });
-    
-    event.currentTarget.classList.remove('bg-white/10');
-    event.currentTarget.classList.add('bg-blue-600', 'text-white', 'active');
-
-    // 2. الوصول للعناصر باستخدام الـ ID الصحيح من صورك
-    const label = document.getElementById('location-label');
-    const input = document.getElementById('mainInput'); // هذا هو الـ ID في السطر 80
-    const extraField = document.getElementById('extra-field');
-
-    if (type === 'flights') {
-        if(label) label.innerText = 'المطار / المدينة';
-        input.placeholder = 'من أين ستغادر؟';
-        if(extraField) extraField.style.display = 'flex';
-    } else if (type === 'hotels') {
-        if(label) label.innerText = 'الفندق / المدينة';
-        input.placeholder = 'أين تريد الإقامة؟';
-        if(extraField) extraField.style.display = 'flex';
-    } else if (type === 'cars') {
-        if(label) label.innerText = 'مكان الاستلام';
-        input.placeholder = 'المطار أو فرع التأجير';
-        if(extraField) extraField.style.display = 'none'; 
-    }
-}
-</script>
+    </script>
 </body>
 </html>
