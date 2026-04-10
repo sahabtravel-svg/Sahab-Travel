@@ -167,7 +167,38 @@
 >
 <script>
     function switchTab(event, type) {
-        // الكود الذي أعطيتك إياه يوضع هنا
+    function switchTab(event, type) {
+        // 1. إزالة كلاس active من جميع الأزرار
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white', 'active');
+            btn.classList.add('bg-gray-100', 'text-gray-600');
+        });
+        
+        // 2. إضافة التنسيق للزر النشط
+        event.currentTarget.classList.remove('bg-gray-100', 'text-gray-600');
+        event.currentTarget.classList.add('bg-blue-600', 'text-white', 'active');
+
+        // 3. تغيير النصوص بناءً على الاختيار
+        const label = document.getElementById('location-label');
+        const input = document.getElementById('location-input');
+        const extraField = document.getElementById('extra-field');
+
+        if (type === 'flights') {
+            label.innerText = 'المطار / المدينة';
+            input.placeholder = 'من أين ستغادر؟';
+            extraField.style.opacity = '1';
+        } else if (type === 'hotels') {
+            label.innerText = 'الفندق / المدينة';
+            input.placeholder = 'أين تريد الإقامة؟';
+            extraField.style.opacity = '1';
+        } else if (type === 'cars') {
+            label.innerText = 'مكان الاستلام';
+            input.placeholder = 'المطار أو فرع التأجير';
+            extraField.style.opacity = '0'; // إخفاء حقل المسافرين للسيارات
+        }
+    }
+
     }
 </script>
 </body>
