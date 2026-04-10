@@ -15,35 +15,33 @@
         .sidebar { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
-<body class="bg-gray-50 pb-20"> <div id="sidebar" class="sidebar fixed top-0 right-0 w-72 h-full bg-white z-[100] shadow-2xl transform translate-x-full">
-        <div class="p-6 bg-blue-900 text-white">
-            <div class="flex justify-between items-center mb-4">
-                <span class="font-black text-xl">سحاب ترافيل</span>
-                <button onclick="toggleSidebar()"><i data-lucide="x"></i></button>
-            </div>
-            <p class="text-xs text-blue-200 text-right">مرحباً بك في عالم السفر</p>
+<body class="bg-gray-50 pb-20">
+
+    <div id="sidebar" class="sidebar fixed top-0 right-0 w-72 h-full bg-white z-[100] shadow-2xl transform translate-x-full">
+        <div class="p-6 bg-blue-900 text-white flex justify-between items-center">
+            <span class="font-black text-xl">سحاب ترافيل</span>
+            <button onclick="toggleSidebar()"><i data-lucide="x"></i></button>
         </div>
-        <div class="p-4 space-y-4">
-            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="user" size="20"></i> تسجيل الدخول</a>
-            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="briefcase" size="20"></i> حجزواتي</a>
-            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="help-circle" size="20"></i> مركز المساعدة</a>
-            <hr>
-            <a href="#" class="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-xl text-gray-700 font-bold"><i data-lucide="settings" size="20"></i> الإعدادات</a>
+        <div class="p-4 space-y-4 font-bold text-gray-700">
+            <div class="p-3 hover:bg-gray-100 rounded-xl">تسجيل الدخول</div>
+            <div class="p-3 hover:bg-gray-100 rounded-xl">حجوزاتي</div>
+            <div class="p-3 hover:bg-gray-100 rounded-xl">اتصل بنا</div>
         </div>
     </div>
     <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-[90] hidden"></div>
 
-    <nav class="bg-blue-900 p-4 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <button onclick="toggleSidebar()" class="text-white"><i data-lucide="menu"></i></button>
-            <div class="text-white font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
-            <div class="w-8"></div> </div>
+    <nav class="bg-blue-900 p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center text-white">
+            <button onclick="toggleSidebar()"><i data-lucide="menu"></i></button>
+            <div class="font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
+            <div class="w-8"></div>
+        </div>
     </nav>
 
     <div class="bg-blue-900 pt-8 pb-24 px-4 rounded-b-[40px]">
-        <div class="container mx-auto text-center mb-8">
-            <h1 class="text-white text-2xl font-black mb-1">ابدأ رحلتك الآن</h1>
-            <p class="text-blue-200 text-xs">احصل على أفضل أسعار الطيران والفنادق</p>
+        <div class="container mx-auto text-center mb-8 text-white">
+            <h1 class="text-2xl font-black mb-1">ابدأ رحلتك الآن</h1>
+            <p class="text-blue-200 text-xs text-center">احجز طيران، فنادق، وسيارات بأفضل الأسعار</p>
         </div>
 
         <div class="container mx-auto grid grid-cols-3 gap-3 max-w-md">
@@ -51,34 +49,45 @@
                 <i data-lucide="plane" class="mb-1"></i>
                 <span class="text-xs font-bold">طيران</span>
             </button>
-            <button onclick="switchTab(this, 'hotels')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-    <div class="container mx-auto px-4 -mt-16">
+            <button onclick="switchTab(this, 'hotels')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
+                <i data-lucide="hotel" class="mb-1"></i>
+                <span class="text-xs font-bold">فنادق</span>
+            </button>
+            <button onclick="switchTab(this, 'cars')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
+                <i data-lucide="car" class="mb-1"></i>
+                <span class="text-xs font-bold">سيارات</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 -mt-16">
         <div class="bg-white rounded-[32px] shadow-2xl p-6 border border-gray-100 max-w-xl mx-auto">
             <div class="space-y-6">
                 
                 <div id="from-container" class="flex flex-col border-b border-gray-100 pb-3 relative">
-                    <label class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest">من (المطار)</label>
+                    <label class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest text-right">من (المطار)</label>
                     <div class="flex items-center gap-3">
                         <i data-lucide="plane-takeoff" class="text-gray-300" size="20"></i>
-                        <input type="text" id="fromInput" placeholder="مدينة المغادرة" class="w-full outline-none font-bold text-gray-800 text-lg search-input" autocomplete="off">
+                        <input type="text" id="fromInput" placeholder="مدينة المغادرة" class="w-full outline-none font-bold text-gray-800 text-lg" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="flex flex-col border-b border-gray-100 pb-3 relative">
-                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest">إلى (الوجهة)</label>
+                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest text-right">إلى (الوجهة)</label>
                     <div class="flex items-center gap-3">
-                        <i id="destination-icon" data-lucide="plane-landing" class="text-gray-300" size="20"></i>
-                        <input type="text" id="toInput" placeholder="الوجهة" class="w-full outline-none font-bold text-gray-800 text-lg search-input" autocomplete="off">
+                        <i id="dest-icon" data-lucide="plane-landing" class="text-gray-300" size="20"></i>
+                        <input type="text" id="toInput" placeholder="الوجهة" class="w-full outline-none font-bold text-gray-800 text-lg" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <div class="flex flex-col border-b border-gray-100 pb-3">
-                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase">التاريخ</label>
-                        <input type="date" class="outline-none font-bold text-gray-700 bg-transparent">
+                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">التاريخ</label>
+                        <input type="date" class="outline-none font-bold text-gray-700 bg-transparent text-sm">
                     </div>
                     <div class="flex flex-col border-b border-gray-100 pb-3">
-                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase">المسافرون</label>
-                        <select class="outline-none font-bold text-gray-700 bg-transparent">
+                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">المسافرون</label>
+                        <select class="outline-none font-bold text-gray-700 bg-transparent text-sm">
                             <option>1 مسافر</option>
                             <option>2 مسافر</option>
                         </select>
@@ -92,50 +101,58 @@
         </div>
     </div>
 
-                            <option>1 مسافر، سياحية</option>
-                            <option>2 مسافر، سياحية</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button class="w-full bg-orange-500 text-white py-4 rounded-2xl font-black text-lg shadow-xl shadow-orange-200 active:scale-95 transition-all">
-                    ابحث عن رحلات
-                </button>
-            </div>
-        </div>
-    </div>
-
     <section class="py-12">
-        <div class="container mx-auto px-4 flex justify-between items-end mb-6">
+        <div class="container mx-auto px-4 flex justify-between items-end mb-6 text-right">
             <div>
-                <h2 class="text-xl font-black text-gray-800 tracking-tight">عروض حصرية لك</h2>
-                <p class="text-xs text-gray-400">أسعار خاصة لفترة محدودة</p>
+                <h2 class="text-xl font-black text-gray-800">عروضنا المميزة</h2>
+                <p class="text-xs text-gray-400">أسعار خاصة اليوم</p>
             </div>
-            <span class="text-blue-600 text-sm font-bold border-b-2 border-blue-100">عرض الكل</span>
+            <span class="text-blue-600 text-sm font-bold border-b-2 border-blue-100 cursor-pointer">عرض الكل</span>
         </div>
 
         <div class="flex overflow-x-auto gap-5 px-4 pb-6 no-scrollbar">
-            <a href="details.html?id=dubai" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0 transition-transform active:scale-95">
-                <div class="relative h-44">
+            <a href="details.html?id=dubai" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0">
+                <div class="h-44 relative">
                     <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" class="w-full h-full object-cover">
-                    <div class="absolute top-4 right-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shadow-lg">الأكثر طلباً</div>
                 </div>
-                <div class="p-5">
-                    <h3 class="font-black text-gray-800 mb-1 text-lg leading-tight">دبي، الإمارات العربية المتحدة</h3>
+                <div class="p-5 text-right">
+                    <h3 class="font-black text-gray-800 text-lg">دبي، الإمارات</h3>
+                    <p class="text-blue-600 font-black text-xl mt-2">$299</p>
+                </div>
+            </a>
+            <a href="details.html?id=london" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0">
+                <div class="h-44 relative">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 text-right">
+                    <h3 class="font-black text-gray-800 text-lg">لندن، بريطانيا</h3>
+                    <p class="text-blue-600 font-black text-xl mt-2">$550</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 flex justify-around p-3 z-50">
+        <button class="flex flex-col items-center gap-1 text-blue-900"><i data-lucide="home" size="20"></i><span class="text-[10px] font-bold">الرئيسية</span></button>
+        <button class="flex flex-col items-center gap-1 text-gray-400"><i data-lucide="search" size="20"></i><span class="text-[10px] font-bold">بحث</span></button>
+        <button class="flex flex-col items-center gap-1 text-gray-400"><i data-lucide="user" size="20"></i><span class="text-[10px] font-bold">حسابي</span></button>
+    </div>
+
+    <script>
         lucide.createIcons();
 
-        // 1. قاعدة البيانات للمطارات والمدن
+        // بيانات البحث
         const dataStore = {
-            airports: ["مطار الملك خالد (RUH)", "مطار دبي الدولي (DXB)", "مطار هيثرو (LHR)", "مطار القاهرة (CAI)"],
-            cities: ["دبي، الإمارات", "لندن، بريطانيا", "باريس، فرنسا", "الرياض، السعودية"],
-            carBranches: ["مطار دبي - صالة 3", "وسط المدينة - الرياض"]
+            flights: ["مطار الملك خالد (RUH)", "مطار دبي الدولي (DXB)", "مطار هيثرو (LHR)", "مطار القاهرة (CAI)"],
+            hotels: ["دبي، الإمارات", "الرياض، السعودية", "لندن، بريطانيا", "باريس، فرنسا"],
+            cars: ["فرع مطار دبي", "فرع وسط المدينة - الرياض"]
         };
 
-        let currentService = 'flights';
+        let currentType = 'flights';
 
-        // 2. وظيفة التبديل (طيران/فنادق/سيارات)
+        // تبديل الخدمات
         function switchTab(element, type) {
-            currentService = type;
+            currentType = type;
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('tab-active', 'text-blue-900');
                 btn.classList.add('bg-white/10', 'text-white');
@@ -146,20 +163,23 @@
             const fromContainer = document.getElementById('from-container');
             const toLabel = document.getElementById('location-label');
             const toInput = document.getElementById('toInput');
+            const destIcon = document.getElementById('dest-icon');
 
             if (type === 'flights') {
                 fromContainer.style.display = 'flex';
                 toLabel.innerText = 'إلى (المطار)';
                 toInput.placeholder = 'مطار الوصول';
+                destIcon.setAttribute('data-lucide', 'plane-landing');
             } else {
                 fromContainer.style.display = 'none';
                 toLabel.innerText = type === 'hotels' ? 'الوجهة أو الفندق' : 'مكان الاستلام';
                 toInput.placeholder = type === 'hotels' ? 'أين تريد الإقامة؟' : 'المطار أو الفرع';
+                destIcon.setAttribute('data-lucide', type === 'hotels' ? 'hotel' : 'car');
             }
             lucide.createIcons();
         }
 
-        // 3. نظام القائمة المنسدلة (Dropdown)
+        // نظام القوائم المنسدلة
         const inputs = ['fromInput', 'toInput'];
         inputs.forEach(id => {
             const input = document.getElementById(id);
@@ -168,9 +188,7 @@
             input.parentNode.appendChild(dropdown);
 
             input.addEventListener('focus', () => {
-                const list = (currentService === 'flights') ? dataStore.airports : 
-                             (currentService === 'hotels' ? dataStore.cities : dataStore.carBranches);
-                
+                const list = dataStore[currentType] || dataStore.hotels;
                 dropdown.innerHTML = '';
                 list.forEach(item => {
                     const div = document.createElement('div');
@@ -190,50 +208,6 @@
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('translate-x-full');
             document.getElementById('overlay').classList.toggle('hidden');
-        }
-
-            <i data-lucide="user" size="20"></i>
-            <span class="text-[10px] font-bold">حسابي</span>
-        </button>
-    </div>
-
-    <script>
-        lucide.createIcons();
-
-        // وظيفة فتح وإغلاق القائمة الجانبية
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            sidebar.classList.toggle('translate-x-full');
-            overlay.classList.toggle('hidden');
-        }
-
-        // وظيفة التبديل بين طيران/فنادق/سيارات
-        function switchTab(element, type) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('tab-active', 'text-blue-900');
-                btn.classList.add('bg-white/10', 'text-white');
-            });
-            element.classList.add('tab-active');
-            element.classList.remove('bg-white/10', 'text-white');
-
-            const label = document.getElementById('location-label');
-            const input = document.getElementById('mainInput');
-            const extraField = document.getElementById('extra-field');
-
-            if (type === 'flights') {
-                label.innerText = 'المغادرة من';
-                input.placeholder = 'من أين ستغادر؟';
-                extraField.style.display = 'flex';
-            } else if (type === 'hotels') {
-                label.innerText = 'الإقامة في';
-                input.placeholder = 'أين تريد الإقامة؟';
-                extraField.style.display = 'flex';
-            } else if (type === 'cars') {
-                label.innerText = 'مكان الاستلام';
-                input.placeholder = 'المطار أو فرع التأجير';
-                extraField.style.display = 'none';
-            }
         }
     </script>
 </body>
