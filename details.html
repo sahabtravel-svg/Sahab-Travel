@@ -64,6 +64,20 @@
         } else {
             document.getElementById('trip-title').innerText = 'الرحلة غير موجودة';
         }
+// هذا الكود هو "الموظف" اللي يستلم الطلب من الرابط
+const urlParams = new URLSearchParams(window.location.search);
+const tripId = urlParams.get('id'); // هنا بياخد كلمة dubai
+
+// هنا بيدور في القائمة اللي كتبناها فوق
+if (tripId && trips[tripId]) {
+    const trip = trips[tripId];
+    
+    // هنا بيغير الكلام والصور في الصفحة
+    document.getElementById('trip-title').innerText = trip.title;
+    document.getElementById('trip-desc').innerText = trip.desc;
+    document.getElementById('trip-price').innerText = trip.price;
+    document.getElementById('trip-image').src = trip.image;
+}
     </script>
 </body>
 </html>
