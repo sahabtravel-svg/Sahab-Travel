@@ -165,41 +165,33 @@
             overlay.classList.add('hidden');
         };
 >
-<script>
+function switchTab(event, type) {
+    // 1. تحديث شكل الأزرار
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white', 'active');
+        btn.classList.add('bg-white/10'); // التنسيق الأصلي لأزرارك
+    });
+    
+    event.currentTarget.classList.remove('bg-white/10');
+    event.currentTarget.classList.add('bg-blue-600', 'text-white', 'active');
 
-    function switchTab(event, type) {
-        // 1. إزالة كلاس active من جميع الأزرار
-        const buttons = document.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => {
-            btn.classList.remove('bg-blue-600', 'text-white', 'active');
-            btn.classList.add('bg-gray-100', 'text-gray-600');
-        });
-        
-        // 2. إضافة التنسيق للزر النشط
-        event.currentTarget.classList.remove('bg-gray-100', 'text-gray-600');
-        event.currentTarget.classList.add('bg-blue-600', 'text-white', 'active');
+    // 2. الوصول للعناصر باستخدام الـ ID الصحيح من صورك
+    const label = document.getElementById('location-label');
+    const input = document.getElementById('mainInput'); // هذا هو الـ ID في السطر 80
+    const extraField = document.getElementById('extra-field');
 
-        // 3. تغيير النصوص بناءً على الاختيار
-        const label = document.getElementById('location-label');
-        const input = document.getElementById('location-input');
-        const extraField = document.getElementById('extra-field');
-
-        if (type === 'flights') {
-            label.innerText = 'المطار / المدينة';
-            input.placeholder = 'من أين ستغادر؟';
-            extraField.style.opacity = '1';
-        } else if (type === 'hotels') {
-            label.innerText = 'الفندق / المدينة';
-            input.placeholder = 'أين تريد الإقامة؟';
-            extraField.style.opacity = '1';
-        } else if (type === 'cars') {
-            label.innerText = 'مكان الاستلام';
-            input.placeholder = 'المطار أو فرع التأجير';
-            extraField.style.opacity = '0'; // إخفاء حقل المسافرين للسيارات
-        }
+    if (type === 'flights') {
+        if(label) label.innerText = 'المطار / المدينة';
+        input.placeholder = 'من أين ستغادر؟';
+        if(extraField) extraField.style.display = 'flex';
+    } else if (type === 'hotels') {
+        if(label) label.innerText = 'الفندق / المدينة';
+        input.placeholder = 'أين تريد الإقامة؟';
+        if(extraField) extraField.style.display = 'flex';
+    } else if (type === 'cars') {
+        if(label) label.innerText = 'مكان الاستلام';
+        input.placeholder = 'المطار أو فرع التأجير';
+        if(extraField) extraField.style.display = 'none'; 
     }
-
-    }
-</script>
-</body>
-</html>
+}
