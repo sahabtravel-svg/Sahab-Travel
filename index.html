@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سحاب ترافيل | المسافرون العرب</title>
+    <title>سحاب ترافيل | وجهتك القادمة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -11,13 +11,12 @@
         body { font-family: 'Cairo', sans-serif; overflow-x: hidden; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .tab-active { background: white !important; color: #1e3a8a !important; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: scale(1.05); }
-        .sidebar { transition: transform 0.3s ease-in-out; }
+        .tab-active { background: white !important; color: #1e3a8a !important; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body class="bg-gray-50 pb-20">
 
-    <nav class="bg-blue-900 p-4 sticky top-0 z-50 shadow-md">
+    <nav class="bg-blue-900 p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center text-white">
             <button onclick="toggleSidebar()"><i data-lucide="menu"></i></button>
             <div class="font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
@@ -27,8 +26,8 @@
 
     <div class="bg-blue-900 pt-8 pb-24 px-4 rounded-b-[40px]">
         <div class="container mx-auto text-center mb-8 text-white">
-            <h1 class="text-2xl font-black mb-1">ابدأ رحلتك الآن</h1>
-            <p class="text-blue-200 text-xs">احجز طيران، فنادق، وسيارات بأفضل الأسعار</p>
+            <h1 class="text-2xl font-black mb-1">أهلاً بك، أين وجهتك القادمة؟</h1>
+            <p class="text-blue-200 text-xs">أفضل عروض الطيران والفنادق بين يديك</p>
         </div>
 
         <div class="container mx-auto grid grid-cols-3 gap-3 max-w-md">
@@ -51,7 +50,7 @@
         <div class="bg-white rounded-[32px] shadow-2xl p-6 border border-gray-100 max-w-xl mx-auto">
             <div class="space-y-6">
                 <div id="from-container" class="flex flex-col border-b border-gray-100 pb-3 relative">
-                    <label class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">من (المطار)</label>
+                    <label class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest text-right">من (المطار)</label>
                     <div class="flex items-center gap-3">
                         <i data-lucide="plane-takeoff" class="text-gray-300" size="20"></i>
                         <input type="text" id="fromInput" placeholder="مدينة المغادرة" class="w-full outline-none font-bold text-gray-800 text-lg" autocomplete="off">
@@ -59,7 +58,7 @@
                 </div>
 
                 <div class="flex flex-col border-b border-gray-100 pb-3 relative">
-                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">إلى (الوجهة)</label>
+                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest text-right">إلى (الوجهة)</label>
                     <div class="flex items-center gap-3">
                         <i id="dest-icon" data-lucide="plane-landing" class="text-gray-300" size="20"></i>
                         <input type="text" id="toInput" placeholder="الوجهة" class="w-full outline-none font-bold text-gray-800 text-lg" autocomplete="off">
@@ -73,23 +72,37 @@
         </div>
     </div>
 
+    <section class="py-12">
+        <div class="container mx-auto px-4 mb-6 text-right">
+            <h2 class="text-xl font-black text-gray-800">أفضل العروض</h2>
+        </div>
+        <div class="flex overflow-x-auto gap-5 px-4 pb-6 no-scrollbar">
+            <div class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" class="h-40 w-full object-cover">
+                <div class="p-4 text-right">
+                    <h3 class="font-bold">دبي، الإمارات</h3>
+                    <p class="text-blue-600 font-black">$299</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 flex justify-around p-3 z-50">
-        <div class="flex flex-col items-center text-blue-900 cursor-pointer"><i data-lucide="home" size="20"></i><span class="text-[10px] font-bold">الرئيسية</span></div>
-        <div class="flex flex-col items-center text-gray-400 cursor-pointer"><i data-lucide="search" size="20"></i><span class="text-[10px] font-bold">بحث</span></div>
-        <div class="flex flex-col items-center text-gray-400 cursor-pointer"><i data-lucide="user" size="20"></i><span class="text-[10px] font-bold">حسابي</span></div>
+        <div class="flex flex-col items-center text-blue-900"><i data-lucide="home" size="20"></i><span class="text-[10px] font-bold">الرئيسية</span></div>
+        <div class="flex flex-col items-center text-gray-400"><i data-lucide="search" size="20"></i><span class="text-[10px] font-bold">بحث</span></div>
+        <div class="flex flex-col items-center text-gray-400"><i data-lucide="user" size="20"></i><span class="text-[10px] font-bold">حسابي</span></div>
     </div>
 
     <script>
         lucide.createIcons();
 
-        // قاعدة البيانات الموسعة
         const dataStore = {
             flights: [
-                "مطار الملك خالد الدولي (RUH) - الرياض",
-                "مطار الملك عبدالعزيز الدولي (JED) - جدة",
-                "مطار دبي الدولي (DXB) - دبي",
+                "مطار الملك خالد (RUH) - الرياض",
+                "مطار الملك عبدالعزيز (JED) - جدة",
+                "مطار دبي الدولي (DXB)",
                 "مطار هيثرو (LHR) - لندن",
-                "مطار القاهرة الدولي (CAI) - القاهرة"
+                "مطار القاهرة (CAI)"
             ],
             hotels: [
                 "الرياض، السعودية",
@@ -99,7 +112,7 @@
             ],
             cars: [
                 "مطار دبي - صالة 3",
-                "فرع وسط المدينة - الرياض"
+                "مطار الرياض - صالة 1"
             ]
         };
 
@@ -114,35 +127,33 @@
             element.classList.add('tab-active');
             element.classList.remove('bg-white/10', 'text-white');
 
-            const fromContainer = document.getElementById('from-container');
+            const fromBox = document.getElementById('from-container');
             const toLabel = document.getElementById('location-label');
             const toInput = document.getElementById('toInput');
-            const destIcon = document.getElementById('dest-icon');
+            const icon = document.getElementById('dest-icon');
 
             if (type === 'flights') {
-                fromContainer.style.display = 'flex';
+                fromBox.style.display = 'flex';
                 toLabel.innerText = 'إلى (المطار)';
                 toInput.placeholder = 'مطار الوصول';
-                destIcon.setAttribute('data-lucide', 'plane-landing');
+                icon.setAttribute('data-lucide', 'plane-landing');
             } else {
-                fromContainer.style.display = 'none';
+                fromBox.style.display = 'none';
                 toLabel.innerText = type === 'hotels' ? 'الوجهة أو الفندق' : 'مكان الاستلام';
                 toInput.placeholder = type === 'hotels' ? 'أين تريد الإقامة؟' : 'المطار أو الفرع';
-                destIcon.setAttribute('data-lucide', type === 'hotels' ? 'hotel' : 'car');
+                icon.setAttribute('data-lucide', type === 'hotels' ? 'hotel' : 'car');
             }
             lucide.createIcons();
         }
 
-        // إعداد القوائم المنسدلة
         ['fromInput', 'toInput'].forEach(id => {
             const input = document.getElementById(id);
-            if(!input) return;
             const dropdown = document.createElement('div');
             dropdown.className = "absolute w-full bg-white shadow-2xl rounded-2xl mt-2 hidden z-[100] border border-gray-100 max-h-60 overflow-y-auto";
             input.parentNode.appendChild(dropdown);
 
             input.addEventListener('focus', () => {
-                const list = dataStore[currentType] || dataStore.hotels;
+                const list = dataStore[currentType];
                 dropdown.innerHTML = '';
                 list.forEach(item => {
                     const div = document.createElement('div');
@@ -160,7 +171,7 @@
         });
 
         function toggleSidebar() {
-            // وظيفة فارغة مؤقتاً لعدم وجود Sidebar في هذا التعديل السريع
+            // Function for menu
         }
     </script>
 </body>
