@@ -28,15 +28,23 @@
         <div class="container mx-auto text-center mb-8 text-white">
             <h1 class="text-2xl font-black mb-1">أهلاً بك، أين وجهتك القادمة؟</h1>
             <p class="text-blue-200 text-xs">أفضل عروض الطيران والفنادق بين يديك</p>
-        </div>
-
-        <div class="container mx-auto grid grid-cols-3 gap-3 max-w-md">
-            <button onclick="switchTab(this, 'flights')" class="tab-btn tab-active rounded-2xl p-4 flex flex-col items-center transition-all">
-                <i data-lucide="plane" class="mb-1"></i>
-                <span class="text-xs font-bold">طيران</span>
+    <nav class="bg-blue-900 px-4 py-3 sticky top-0 z-50 shadow-lg border-b border-blue-800">
+        <div class="container mx-auto flex justify-between items-center">
+            
+            <button onclick="toggleSidebar()" class="text-white hover:text-orange-400 transition-colors">
+                <i data-lucide="menu" size="28"></i>
             </button>
-            <button onclick="switchTab(this, 'hotels')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
-                <i data-lucide="hotel" class="mb-1"></i>
+            
+            <div class="flex flex-col items-center gap-1">
+                <img src="logo.png" alt="شعار سحاب العالم" class="h-[60px] w-auto drop-shadow-lg">
+            </div>
+            
+            <button class="text-white hover:text-orange-400 transition-colors">
+                <i data-lucide="user-circle" size="28"></i>
+            </button>
+        </div>
+    </nav>
+
                 <span class="text-xs font-bold">فنادق</span>
             </button>
             <button onclick="switchTab(this, 'cars')" class="tab-btn bg-white/10 text-white rounded-2xl p-4 flex flex-col items-center transition-all">
