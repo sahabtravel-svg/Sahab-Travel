@@ -17,20 +17,7 @@
 </head>
 <body class="bg-gray-50 pb-20">
 
-    <div id="sidebar" class="sidebar fixed top-0 right-0 w-72 h-full bg-white z-[100] shadow-2xl transform translate-x-full">
-        <div class="p-6 bg-blue-900 text-white flex justify-between items-center">
-            <span class="font-black text-xl">سحاب ترافيل</span>
-            <button onclick="toggleSidebar()"><i data-lucide="x"></i></button>
-        </div>
-        <div class="p-4 space-y-4 font-bold text-gray-700">
-            <div class="p-3 hover:bg-gray-100 rounded-xl">تسجيل الدخول</div>
-            <div class="p-3 hover:bg-gray-100 rounded-xl">حجوزاتي</div>
-            <div class="p-3 hover:bg-gray-100 rounded-xl">اتصل بنا</div>
-        </div>
-    </div>
-    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-[90] hidden"></div>
-
-    <nav class="bg-blue-900 p-4 sticky top-0 z-50">
+    <nav class="bg-blue-900 p-4 sticky top-0 z-50 shadow-md">
         <div class="container mx-auto flex justify-between items-center text-white">
             <button onclick="toggleSidebar()"><i data-lucide="menu"></i></button>
             <div class="font-black text-2xl tracking-tighter">سحاب <span class="text-orange-400">ترافيل</span></div>
@@ -41,7 +28,7 @@
     <div class="bg-blue-900 pt-8 pb-24 px-4 rounded-b-[40px]">
         <div class="container mx-auto text-center mb-8 text-white">
             <h1 class="text-2xl font-black mb-1">ابدأ رحلتك الآن</h1>
-            <p class="text-blue-200 text-xs text-center">احجز طيران، فنادق، وسيارات بأفضل الأسعار</p>
+            <p class="text-blue-200 text-xs">احجز طيران، فنادق، وسيارات بأفضل الأسعار</p>
         </div>
 
         <div class="container mx-auto grid grid-cols-3 gap-3 max-w-md">
@@ -60,12 +47,11 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-4 -mt-16">
+    <div class="container mx-auto px-4 -mt-16 relative z-10">
         <div class="bg-white rounded-[32px] shadow-2xl p-6 border border-gray-100 max-w-xl mx-auto">
             <div class="space-y-6">
-                
                 <div id="from-container" class="flex flex-col border-b border-gray-100 pb-3 relative">
-                    <label class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest text-right">من (المطار)</label>
+                    <label class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">من (المطار)</label>
                     <div class="flex items-center gap-3">
                         <i data-lucide="plane-takeoff" class="text-gray-300" size="20"></i>
                         <input type="text" id="fromInput" placeholder="مدينة المغادرة" class="w-full outline-none font-bold text-gray-800 text-lg" autocomplete="off">
@@ -73,24 +59,10 @@
                 </div>
 
                 <div class="flex flex-col border-b border-gray-100 pb-3 relative">
-                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest text-right">إلى (الوجهة)</label>
+                    <label id="location-label" class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">إلى (الوجهة)</label>
                     <div class="flex items-center gap-3">
                         <i id="dest-icon" data-lucide="plane-landing" class="text-gray-300" size="20"></i>
                         <input type="text" id="toInput" placeholder="الوجهة" class="w-full outline-none font-bold text-gray-800 text-lg" autocomplete="off">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex flex-col border-b border-gray-100 pb-3">
-                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">التاريخ</label>
-                        <input type="date" class="outline-none font-bold text-gray-700 bg-transparent text-sm">
-                    </div>
-                    <div class="flex flex-col border-b border-gray-100 pb-3">
-                        <label class="text-[10px] font-black text-blue-600 mb-1 uppercase text-right">المسافرون</label>
-                        <select class="outline-none font-bold text-gray-700 bg-transparent text-sm">
-                            <option>1 مسافر</option>
-                            <option>2 مسافر</option>
-                        </select>
                     </div>
                 </div>
 
@@ -101,86 +73,38 @@
         </div>
     </div>
 
-    <section class="py-12">
-        <div class="container mx-auto px-4 flex justify-between items-end mb-6 text-right">
-            <div>
-                <h2 class="text-xl font-black text-gray-800">عروضنا المميزة</h2>
-                <p class="text-xs text-gray-400">أسعار خاصة اليوم</p>
-            </div>
-            <span class="text-blue-600 text-sm font-bold border-b-2 border-blue-100 cursor-pointer">عرض الكل</span>
-        </div>
-
-        <div class="flex overflow-x-auto gap-5 px-4 pb-6 no-scrollbar">
-            <a href="details.html?id=dubai" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0">
-                <div class="h-44 relative">
-                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" class="w-full h-full object-cover">
-                </div>
-                <div class="p-5 text-right">
-                    <h3 class="font-black text-gray-800 text-lg">دبي، الإمارات</h3>
-                    <p class="text-blue-600 font-black text-xl mt-2">$299</p>
-                </div>
-            </a>
-            <a href="details.html?id=london" class="min-w-[280px] bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden shrink-0">
-                <div class="h-44 relative">
-                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500" class="w-full h-full object-cover">
-                </div>
-                <div class="p-5 text-right">
-                    <h3 class="font-black text-gray-800 text-lg">لندن، بريطانيا</h3>
-                    <p class="text-blue-600 font-black text-xl mt-2">$550</p>
-                </div>
-            </a>
-        </div>
-    </section>
-
     <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 flex justify-around p-3 z-50">
-        <button class="flex flex-col items-center gap-1 text-blue-900"><i data-lucide="home" size="20"></i><span class="text-[10px] font-bold">الرئيسية</span></button>
-        <button class="flex flex-col items-center gap-1 text-gray-400"><i data-lucide="search" size="20"></i><span class="text-[10px] font-bold">بحث</span></button>
-        <button class="flex flex-col items-center gap-1 text-gray-400"><i data-lucide="user" size="20"></i><span class="text-[10px] font-bold">حسابي</span></button>
+        <div class="flex flex-col items-center text-blue-900 cursor-pointer"><i data-lucide="home" size="20"></i><span class="text-[10px] font-bold">الرئيسية</span></div>
+        <div class="flex flex-col items-center text-gray-400 cursor-pointer"><i data-lucide="search" size="20"></i><span class="text-[10px] font-bold">بحث</span></div>
+        <div class="flex flex-col items-center text-gray-400 cursor-pointer"><i data-lucide="user" size="20"></i><span class="text-[10px] font-bold">حسابي</span></div>
     </div>
 
-        // قائمة المطارات والمدن الموسعة (نفس نظام المسافر)
+    <script>
+        lucide.createIcons();
+
+        // قاعدة البيانات الموسعة
         const dataStore = {
             flights: [
                 "مطار الملك خالد الدولي (RUH) - الرياض",
                 "مطار الملك عبدالعزيز الدولي (JED) - جدة",
                 "مطار دبي الدولي (DXB) - دبي",
                 "مطار هيثرو (LHR) - لندن",
-                "مطار القاهرة الدولي (CAI) - القاهرة",
-                "مطار حمد الدولي (DOH) - الدوحة",
-                "مطار شارل ديغول (CDG) - باريس",
-                "مطار أتاتورك (IST) - اسطنبول"
+                "مطار القاهرة الدولي (CAI) - القاهرة"
             ],
             hotels: [
-                "الرياض، المملكة العربية السعودية",
-                "جدة، المملكة العربية السعودية",
-                "دبي، الإمارات العربية المتحدة",
-                "لندن، المملكة المتحدة",
-                "باريس، فرنسا",
-                "القاهرة، مصر",
-                "اسطنبول، تركيا",
-                "المالديف، جزر المالديف"
+                "الرياض، السعودية",
+                "دبي، الإمارات",
+                "لندن، بريطانيا",
+                "باريس، فرنسا"
             ],
             cars: [
-                "مطار الملك خالد - صالة 1",
-                "مطار الملك عبدالعزيز - الصالة الجديدة",
-                "مطار دبي - صالة الوصول 3",
-                "فرع وسط المدينة - الرياض",
-                "مطار هيثرو - مكتب التأجير"
+                "مطار دبي - صالة 3",
+                "فرع وسط المدينة - الرياض"
             ]
-        };
-
-        lucide.createIcons();
-
-        // بيانات البحث
-        const dataStore = {
-            flights: ["مطار الملك خالد (RUH)", "مطار دبي الدولي (DXB)", "مطار هيثرو (LHR)", "مطار القاهرة (CAI)"],
-            hotels: ["دبي، الإمارات", "الرياض، السعودية", "لندن، بريطانيا", "باريس، فرنسا"],
-            cars: ["فرع مطار دبي", "فرع وسط المدينة - الرياض"]
         };
 
         let currentType = 'flights';
 
-        // تبديل الخدمات
         function switchTab(element, type) {
             currentType = type;
             document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -209,10 +133,10 @@
             lucide.createIcons();
         }
 
-        // نظام القوائم المنسدلة
-        const inputs = ['fromInput', 'toInput'];
-        inputs.forEach(id => {
+        // إعداد القوائم المنسدلة
+        ['fromInput', 'toInput'].forEach(id => {
             const input = document.getElementById(id);
+            if(!input) return;
             const dropdown = document.createElement('div');
             dropdown.className = "absolute w-full bg-white shadow-2xl rounded-2xl mt-2 hidden z-[100] border border-gray-100 max-h-60 overflow-y-auto";
             input.parentNode.appendChild(dropdown);
@@ -236,8 +160,7 @@
         });
 
         function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('translate-x-full');
-            document.getElementById('overlay').classList.toggle('hidden');
+            // وظيفة فارغة مؤقتاً لعدم وجود Sidebar في هذا التعديل السريع
         }
     </script>
 </body>
